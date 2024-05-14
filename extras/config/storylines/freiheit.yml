@@ -577,7 +577,7 @@ scenery:
 quests:
   aiSurveillance1:
     npc: geldbergCeo
-    mood: exclamation
+    mood: surveillance
     available:
       dialogue:
         - type: sequence
@@ -680,7 +680,7 @@ quests:
                   set: [ 'quest.aiSurveillance1.done', 'pnt.freedomNegative.aiSurveillance1']
   aiSurveillance2:
     npc: youngCitizen
-    mood: exclamation
+    mood: surveillance
     required: aiSurveillance1
     available:
       dialogue:
@@ -767,7 +767,7 @@ quests:
                   set: [ 'quest.aiSurveillance2.spokenToJournalist' ]
   aiSurveillance3:
     npc: youngCitizen
-    mood: exclamation
+    mood: surveillance
     required: aiSurveillance2
     available:
       dialogue:
@@ -902,7 +902,7 @@ quests:
               set: [ 'quest.aiSurveillance3.done', 'pnt.freedomLarge.aiSurveillance3' ]
   fakeNews1:
     npc: footballFan
-    mood: exclamation
+    mood: restaurant
     available:
       dialogue:
         - type: sequence
@@ -979,7 +979,7 @@ quests:
                   set: [ 'quest.fakeNews1.spokenToFriend' ]
   fakeNews2:
     npc: footballFan
-    mood: exclamation
+    mood: restaurant
     required: fakeNews1
     available:
       dialogue:
@@ -1046,7 +1046,7 @@ quests:
                 de: "... es klingt nach einem schlechten Ort."
   fakeNews3:
     npc: footballFan
-    mood: exclamation
+    mood: restaurant
     required: fakeNews2
     available:
       dialogue:
@@ -1144,7 +1144,7 @@ quests:
                 de: "Ich habe nicht genug Follower, tut mir leid."
   band1:
     npc: artist
-    mood: exclamation
+    mood: band
     available:
       dialogue:
         - type: sequence
@@ -1196,7 +1196,7 @@ quests:
                   set: [ 'quest.band1.done', 'pnt.freedomSmall.band1', 'quest.band1.local' ]
   band2:
     npc: artist
-    mood: exclamation
+    mood: band
     required: band1
     available:
       dialogue:
@@ -1249,7 +1249,7 @@ quests:
                       set: [ 'quest.band2.done', 'pnt.freedomSmall.band2', 'quest.band2.local' ]
   band3:
     npc: artist
-    mood: exclamation
+    mood: band
     required: band2
     available:
       dialogue:
@@ -1331,7 +1331,7 @@ quests:
                   set: [ 'quest.band3.done', 'pnt.freedomLarge.band3' ]
   store1:
     npc: mayor
-    mood: exclamation
+    mood: store
     available:
       dialogue:
         - type: sequence
@@ -1393,7 +1393,7 @@ quests:
                   set: [ 'quest.store1.done', 'pnt.freedomSmall.store1' ]
   store2:
     npc: mayor
-    mood: exclamation
+    mood: store
     required: store1
     available:
       dialogue:
@@ -1469,7 +1469,7 @@ quests:
                 de: "Aber... Ich bin jünger als du!"
   store3:
     npc: mayor
-    mood: exclamation
+    mood: store
     required: store2
     available:
       dialogue:
@@ -1532,7 +1532,7 @@ quests:
                       set: [ 'quest.store3.done', 'pnt.freedomLarge.store3' ]
   mardiF:
     npc: mathFan
-    mood: exclamation
+    mood: mardi
     available:
       dialogue:
         - type: sequence
@@ -1660,7 +1660,7 @@ quests:
                     de: "Von Professorin Fry habe ich noch nie gehört, tut mir leid."
   mardiA:
     npc: gameDev
-    mood: exclamation
+    mood: mardi
     required: mardiF
     available:
       dialogue:
@@ -1737,7 +1737,7 @@ quests:
                     de: "Computerspiele fördern Gewalttaten!"
   mardiI:
     npc: journalist
-    mood: exclamation
+    mood: mardi
     available:
       dialogue:
         - type: sequence
@@ -1815,7 +1815,7 @@ quests:
                     de: "Ich möchte einen KI-Assistenten, der sich um solche Dinge kümmert."
   mardiR:
     npc: mardiMathematician
-    mood: exclamation
+    mood: mardi
     required: [ mardiF, mardiA, mardiI ]
     available:
       dialogue:
