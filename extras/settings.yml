@@ -87,6 +87,14 @@ textures:
           srcs: 'queue.png'
         - name: 'babyCart'
           srcs: 'baby-cart.png'
+        - name: 'fairF'
+          srcs: 'fair-f.png'
+        - name: 'fairA'
+          srcs: 'fair-a.png'
+        - name: 'fairI'
+          srcs: 'fair-i.png'
+        - name: 'fairR'
+          srcs: 'fair-r.png'
 players:
   1:
     color: '#27a6a8'

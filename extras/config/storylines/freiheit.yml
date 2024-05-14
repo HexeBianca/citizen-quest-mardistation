@@ -574,6 +574,22 @@ scenery:
   protesters:
     spawn: { x: 3253, y: 3369 }
     cond: 'quest.aiSurveillance3.active & ^quest.aiSurveillance3.local'
+  fairF:
+    spawn: { x: 5951, y: 3032 }
+    layer: back
+    cond: 'quest.mardiF.done'
+  fairA:
+    spawn: { x: 6105, y: 2869 }
+    layer: back
+    cond: 'quest.mardiA.done'
+  fairI:
+    spawn: { x: 6334, y: 2797 }
+    layer: back
+    cond: 'quest.mardiI.done'
+  fairR:
+    spawn: { x: 6523, y: 2611 }
+    layer: back
+    cond: 'quest.mardiR.done'
 quests:
   aiSurveillance1:
     npc: geldbergCeo
