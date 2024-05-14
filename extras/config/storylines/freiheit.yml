@@ -285,7 +285,7 @@ npcs:
         items:
           - text:
               en: "The FAIR principles for research data are:  Findability, Accessibility, Interoperability, and Reusability."
-              de: "Die FAIR-Prinzipien für Forschungsdaten sind: Auffindbarkeit, Zugänglichkeit, Verknüpfbarkeit und Wiederverwendbarkeit."
+              de: "Die FAIR-Prinzipien für Forschungsdaten sind: Auffindbarkeit, Zugänglichkeit, Verknüpfbarkeit und Wiederverwendbarkeit. Im Englischen sind die Anfangsbuchstaben FAIR."
           - text:
               en: "Which principle are you interested in?"
               de: "Über welches Prinzip möchtest Du mehr erfahren?"
@@ -1589,14 +1589,14 @@ quests:
             - type: sequence
               items:
                 - text:
-                    en: "I will try to find Professor Fry’s first book."
-                    de: "Ich werde versuchen, das erste Buch von Professorin Fry zu finden."
+                    en: "I will try to find Professor Fry’s first book via the ISBN, a unique number to identify it."
+                    de: "Ich suche das Buch von Professorin Fry über die ISBN, eine eindeutige Nummer zur Identifizierung."
                 - text:
                     en: ":clock: 1 minute later…"
                     de: ":clock: 1 Minute später..."
                 - text:
-                    en: "Here is the book. Please return it later."
-                    de: "Hier ist das Buch. Bitte gib es später zurück."
+                    en: "The book was findable, here it is. Please return it later."
+                    de: "Das Buch war auffindbar, hier ist es. Bitte gib es später zurück."
                   set: [ 'quest.mardiF.done', 'pnt.freedomSmall.mardiF' ]
           videoBlogger:
             - type: sequence
@@ -1607,6 +1607,9 @@ quests:
                 - text:
                     en: "Here are some links to the videos I like the most."
                     de: "Hier sind ein paar Links zu den Videos, die ich am besten finde."
+                - text:
+                    en: "With this the videos are findable."
+                    de: "Damit sind die Videos auffindbar."
                   set: [ 'quest.mardiF.done', 'pnt.freedomSmall.mardiF' ]
           journalist:
             - type: sequence
@@ -1618,8 +1621,8 @@ quests:
                     en: ":clock: 5 minutes later…"
                     de: ":clock: 5 Minuten später…"
                 - text:
-                    en: "Here is a list of her appearances. With this list, you can now find them online."
-                    de: "Hier ist eine Liste ihrer Auftritte. Damit kannst du die Sendungen jetzt online finden."
+                    en: "Here is a list of her appearances. With this list, they are findable online."
+                    de: "Hier ist eine Liste ihrer Auftritte. Damit sind die Sendungen jetzt online auffindbar."
                   set: [ 'quest.mardiF.done', 'pnt.freedomSmall.mardiF' ]
           mardiMathematician:
             - type: sequence
@@ -1628,8 +1631,8 @@ quests:
                     en: "I have met Professor Fry at a conference."
                     de: "Ich habe Professorin Fry auf einer Konferenz getroffen."
                 - text:
-                    en: "You can find her articles in a scientific online library using her author identifier number."
-                    de: "Man kann ihre Artikel über ihre individuelle Personen-Kennnummer in einer wissenschaftlichen Online-Bibliothek finden."
+                    en: "Her articles are findable in a scientific online library using her author identifier number."
+                    de: "Ihre Artikel sind über ihre individuelle Personen-Kennnummer in einer wissenschaftlichen Online-Bibliothek auffindbar."
                 - text:
                     en: "I have access and can download them as PDFs for you."
                     de: "Ich habe Zugang dazu und kann sie dir als PDF-Dateien herunterladen."
@@ -1718,8 +1721,8 @@ quests:
             - type: sequence
               items:
                 - text:
-                    en: "Your friend can make the game available online and upload the source code to an open platform."
-                    de: "Dein Freund kann das Spiel online bereitstellen und den Quellcode auf eine offene Plattform laden."
+                    en: "Your friend can make the game accessible online and upload the source code to an open platform. "
+                    de: "Dein Freund kann das Spiel online zugänglich machen und den Quellcode auf eine offene Plattform laden."
                 - text:
                     en: "Make sure you define who can download it and who can collaborate."
                     de: "Lege unbedingt fest, wer das Spiel herunterladen und wer es weiterentwickeln darf."
@@ -1730,8 +1733,8 @@ quests:
                 de: "Ich kenne mich mit der Veröffentlichung von Texten und Medien aus. Zu Computerspielen oder Software kannst du den Mathematiker fragen. Er hilft dir bestimmt gern."
           videoBlogger:
             - text:
-                en: "To share games or data, contact the mathematician."
-                de: "Wenn du Spiele oder Daten weitergeben möchtest, wende dich an den Mathematiker."
+                en: "To make games or data accessible, contact the mathematician."
+                de: "Wenn du Spiele oder Daten zugänglich machen möchtest, wende dich an den Mathematiker."
           _default:
             - type: first
 #              type: shuffle
@@ -1796,8 +1799,8 @@ quests:
                     en: ":clock: 3 minutes later…"
                     de: ":clock: 3 Minuten später..."
                 - text:
-                    en: "It is an old proprietary text format. Here is a program to convert it to a standard text format for you."
-                    de: "Es ist ein altes geschütztes Textformat. Hier ist ein Programm, das es für dich in ein Standard-Textformat umwandelt."
+                    en: "It is an old proprietary text format. Here is a program to convert it to a standard text format for you. Now it is interoperable."
+                    de: "Es ist ein altes geschütztes Textformat. Hier ist ein Programm, das es für dich in ein Standard-Textformat umwandelt, und somit verknüpfbar macht."
                   set: [ 'quest.mardiI.done', 'pnt.freedomSmall.mardiI' ]
           biologist:
             - text:
@@ -1814,8 +1817,8 @@ quests:
                     en: "We don’t have a book on old file formats.."
                     de: "Wir haben kein Buch über alte Dateiformate."
                 - text:
-                    en: "The mathematicians on the ship are experts in data formats; you can ask them."
-                    de: "Der Mathematiker auf dem Schiff ist ein Experte für Dateiformaten, frag ihn doch mal."
+                    en: "The mathematicians at the ship are experts in data formats and interoperbility; you can ask them."
+                    de: "Der Mathematiker auf dem Schiff ist ein Experte für Dateiformate und Verknüpfbarkeit, frag ihn doch mal."
           _default:
             - type: first
 #              type: shuffle
@@ -1883,8 +1886,8 @@ quests:
                     en: ":clock: …30 minutes later"
                     de: ":clock: …30 Minuten später"
                 - text:
-                    en: "We have now uploaded a new version of the dataset with everything included."
-                    de: "Wir haben jetzt eine neue Version des Datensatzes hochgeladen, in der alles enthalten ist."
+                    en: "We have now uploaded a new version of the dataset with everything included. That way the data is reusable."
+                    de: "Wir haben jetzt eine neue Version des Datensatzes hochgeladen, in der alles enthalten ist. So sind die Daten wiederverwendbar."
                   set: [ 'quest.mardiR.done', 'pnt.freedomLarge.mardiR' ]
 ending:
   dialogue:
