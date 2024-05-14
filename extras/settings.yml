@@ -107,6 +107,10 @@ i18n:
     decisionMade:
       en: ''
       de: ''
-
+map:
+  scoreCounter:
+    categories:
+      - id: freedom
+        pattern: '^(pnt\.freedomSmall\.|pnt\.freedomLarge\.)'
 
 

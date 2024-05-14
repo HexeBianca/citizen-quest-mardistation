@@ -26,6 +26,35 @@ $c-edsoc-yellow: #ffeb78;
   .inclusion-bar {
     display: none;
   }
+
+  .score-counter-overlay {
+    position: absolute;
+    top: 1%;
+    right: 2%;
+    color: black;
+    font-size: 2em;
+
+    .score-counter-freedom {
+      display: flex;
+      align-items: center;
+
+      &:before {
+        content: " ";
+        display: inline-block;
+        background-image: url('../../static/icons/stats-freedomSmall.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 2em;
+        height: 2em;
+      }
+
+      .score-counter-value {
+        min-width: 1.5em;
+        text-align: right;
+      }
+    }
+  }
 }
 
 .intro-screen {
