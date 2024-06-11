@@ -1,20 +1,20 @@
 decision:
-  en: "Some citizens don't have enough freedom, can't use the freedom they have, or don't feel really free. You can help them by completing their quests and raising the city's Level of Freedom."
-  de: "Einige Personen haben nicht genug Freiheit, können die Freiheit, die sie haben, nicht nutzen oder fühlen sich nicht wirklich frei. Du kannst ihnen helfen, indem du ihre Aufgaben erfüllst. So machst du die Stadt zu einem freieren Ort."
+  en: "You are at a math conference. It takes place in the university quarter of Mathhattan. A ship from the MaRDI realm has just docked in the city harbor. Interact with the scientists and complete their quests."
+  de: ""
 prompt:
-  en: "Some citizens don't have enough freedom, can't use the freedom they have, or don't feel really free. You can help them by completing their quests and raising the city's Level of Freedom."
-  de: "Einige Personen haben nicht genug Freiheit, können die Freiheit, die sie haben, nicht nutzen oder fühlen sich nicht wirklich frei. Du kannst ihnen helfen, indem du ihre Aufgaben erfüllst. So machst du die Stadt zu einem freieren Ort."
+  en: "You are at a math conference. It takes place in the university quarter of Mathhattan. A ship from the MaRDI realm has just docked in the city harbor to participate. Interact with the people at the conference and complete their quests."
+  de: ""
 npcs:
   mayor:
     name:
-      en: Mayor
-      de: Bürgermeisterin
+      en: Felicia Hausvillage
+      de: Felicia Hausvillage
     spawn: { x: 2910, y: 3428 }
     actAs: ['_fakeNews3CantHelp']
     dialogue:
       - text:
-          en: "The city government wants to have an active role in urban development."
-          de: "Die Stadtverwaltung möchte eine aktive Rolle in der Stadtentwicklung spielen."
+          en: "I am a topologist."
+          de: ""
   librarian:
     name:
       en: Librarian
@@ -239,22 +239,17 @@ npcs:
           - text:
               en: "I'm past the age to think of joining the Philharmonic, so it can wait."
               de: "Ich bin zu alt, um bei der Philharmonie anzufangen, also eilt das nicht."
-  mathFan:
+  statistician:
     name:
-      en: Libby
-      de: Libby
-    type: citizenDaphne
+      en: Carla Gaudi
+      de: Carla Gaudi
+    type: parksDirector
     spawn: { x: 5279, y: 2293 }
     actAs: ['_fakeNews3FewFollowers', '_ageYoung']
     dialogue:
-      - type: cycle
-        items:
-          - text:
-              en: "I heard, a math ship has just docked in the city harbor. How cool is this!"
-              de: "Ich habe gehört, dass gerade ein Mathe-Schiff im Stadthafen angelegt hat. Wie cool ist das denn!"
-          - text:
-              en: "Math is my favorite subject."
-              de: "Mathe ist mein Lieblingsfach."
+      - text:
+          en: "I am a statistician and I love data :love:!"
+          de: ""
   mardiMathematician:
     name:
       en: Mathematician
@@ -428,17 +423,6 @@ npcs:
       - text:
           en: "I hope the government does something about the crime wave."
           de: "Ich hoffe, die Regierung unternimmt etwas gegen den Anstieg der Kriminalität."
-  citizenEstablished2:
-    name:
-      en: "Neighbor"
-      de: "Nachbarin"
-    type: parksDirector
-    spawn: { x: 4370, y: 3330 }
-    actAs: ['_ageNotOld']
-    dialogue:
-      - text:
-          en: "Sorry, can't talk right now."
-          de: "Tut mir leid, ich kann gerade nicht reden."
   citizenDetached1:
     name:
       en: "Tourist"
@@ -450,17 +434,17 @@ npcs:
       - text:
           en: "I wonder what that ship that just docked in the city is all about..."
           de: "Ich frage mich, was es mit dem Schiff auf sich hat, das gerade im Stadthafen angedockt hat..."
-  citizenDetached2:
+  lawyer:
     name:
-      en: "Neighbor"
-      de: "Nachbar"
+      en: "Muhammad Quartz"
+      de: "Muhammad Quartz"
     type: lawyer
     spawn: { x: 2190, y: 817 }
     actAs: ['_ageOld']
     dialogue:
       - text:
-          en: "Things are bad, and I can only imagine them getting worse."
-          de: "Die Dinge stehen schlecht, und ich fürchte, dass sie noch schlimmer werden."
+          en: "I am an algebraist."
+          de: ""
   citizenDisillusioned2:
     name:
       en: "Neighbor"
@@ -510,6 +494,57 @@ npcs:
     spawn: { x: 3322, y: 3380 }
     actAs: _aiSurveillanceProtesters
     cond: 'quest.aiSurveillance3.active & ^quest.aiSurveillance3.local'
+  robot:
+    name:
+      en: "Robot"
+      de: "Roboter"
+    spawn: { x: 3540, y: 2974 }
+    dialogue:
+      - type: random
+        items:
+          - text:
+              en: "“Mathematics is the queen and servant of sciences”, according to a quote by Carl F. Gauss."
+              de: "..."
+          - text:
+              en: "Is Mathematics even a science?"
+              de: "..."
+          - text:
+              en: "Research data are not only empirical records."
+              de: "..."
+          - text:
+              en: "In modern mathematical research, we can find many types of data."
+              de: "..."
+          - text:
+              en: "One key difference between mathematics and other sciences is the existence of proofs."
+              de: "..."
+          - text:
+              en: "Have you subscribed to the MaRDI newsletter, yet?"
+              de: "..."
+          - text:
+              en: "Mathematics is not especially well placed in terms of managing research data and software in comparison to other fields."
+              de: "..."
+          - text:
+              en: "Data must be accompanied by rich metadata that describes it."
+              de: "..."
+          - text:
+              en: "Storing and archiving research data is not a trivial matter and should be planned carefully."
+              de: "..."
+          - text:
+              en: "Information is data tagged with meaning."
+              de: "..."
+          - text:
+              en: "Reusing knowledge is ingrained in the practice of scientific research as the basis of verifiability."
+              de: "..."
+          - text:
+              en: "Access to research information is the most fundamental principle for spreading science across the scientific community and society."
+              de: "..."
+          - text:
+              en: "I :love: math!"
+              de: "..."
+            set: [ 'op.love.1' ]
+          - text:
+              en: "Your math is data!"
+              de: "..."         
 dialogues:
   _policeOfficers:
     - type: sequence
@@ -522,7 +557,7 @@ dialogues:
             de: "... aber die Fahrraddiebstähle sind eigentlich seit Jahren rückläufig."
         - text:
             en: "People are just scared because of online videos that show crimes in progress."
-            de: "Die Leute haben nur Angst wegen der Online-Videos, die aktuelle Verbrechen zeigen."
+            de: "Die Leute haben nur Angst wegen der Online-Videos, die aktuelle Verbrechen zeigen."       
 scenery:
   ringlight:
     spawn: { x: 2394, y: 1305 }
@@ -1345,230 +1380,29 @@ quests:
                     en: "OK. OK. I should try it at least once."
                     de: "Na gut. Ich denke, ich sollte es wenigstens einmal versuchen."
                   set: [ 'quest.band3.done', 'pnt.freedomLarge.band3' ]
-  store1:
-    npc: mayor
-    mood: store
-    available:
-      dialogue:
-        - type: sequence
-          items:
-            - text:
-                en: "We’re investing in reactivating the shopping center."
-                de: "Wir investieren in die Wiederbelebung des Einkaufszentrums."
-            - text:
-                en: "We want people to return to the stores, and including everyone is important."
-                de: "Wir wollen, dass die Leute in die Läden zurückkehren, und es ist wichtig, dass alle mitmachen."
-            - text:
-                en: "Can you help me survey some citizens?"
-                de: "Kannst du mir helfen, eine Befragung unter den Bürger*innen durchzuführen?"
-              responses:
-                - text:
-                    en: "Accept the quest"
-                    de: "Nimm die Aufgabe an"
-                  then: accepted
-                - text:
-                    en: "Decline for now"
-                    de: "Vorerst ablehnen"
-                  thenText:
-                    en: "OK. I hope you reconsider."
-                    de: "Ok. Ich hoffe, du überlegst es dir nochmal."
-        - id: accepted
-          type: sequence
-          items:
-            - text:
-                en: "Thank you. I know there’s been complaints from people in wheelchairs."
-                de: "Vielen Dank. Ich habe gehört, dass es Beschwerden von Menschen im Rollstuhl gibt."
-            - text:
-                en: "Please find a citizen in a wheelchair and find out more."
-                de: "Bitte finde eine Person im Rollstuhl und finde mehr heraus."
-              set: [ 'quest.store1.active' ]
-    stages:
-      - prompt:
-          en: "Talk to a citizen in a wheelchair about accessibility issues in the shopping center."
-          de: "Sprich mit einer Person im Rollstuhl über die Barrierefreiheit im Einkaufszentrum."
-        dialogues:
-          mayor:
-            - text:
-                en: "Please find a citizen in a wheelchair and find out more."
-                de: "Bitte finde eine Person im Rollstuhl und finde mehr heraus."
-          artist:
-            - type: sequence
-              items:
-                - text:
-                    en: "Oh, yes, the shopping center has always been a problem for me!"
-                    de: "Oh, ja, das Einkaufszentrum ist immer ein Problem für mich!"
-                - text:
-                    en: "The elevators work fine, and the bathrooms are accessible…"
-                    de: "Die Aufzüge funktionieren gut, und die Toiletten sind barrierefrei..."
-                - text:
-                    en: "… but there isn’t enough parking space for bicycles! Especially for my e-bike, which is a bit wider."
-                    de: "... aber es gibt nicht genug Parkplätze für Fahrräder! Vor allem für mein E-Bike, das etwas breiter ist."
-                - text:
-                    en: "Thanks for listening. I hope the city fixes this."
-                    de: "Danke fürs Zuhören, ich hoffe, die Stadt bringt das in Ordnung."
-                  set: [ 'quest.store1.done', 'pnt.freedomSmall.store1' ]
-  store2:
-    npc: mayor
-    mood: store
-    required: store1
-    available:
-      dialogue:
-        - type: sequence
-          items:
-            - text:
-                en: "We’re continuing our work to reactivate the shopping center."
-                de: "Wir arbeiten weiter daran, das Einkaufszentrum zu reaktivieren."
-            - text:
-                en: "We hope people choose to buy in local shops instead of online. And it’s important that everyone feels welcome."
-                de: "Wir hoffen, dass die Menschen lieber in Geschäften vor Ort einkaufen als online. Und es ist wichtig, dass sich jeder willkommen fühlt."
-            - text:
-                en: "Can you help me survey some citizens?"
-                de: "Kannst du mir helfen, einige Bürger*innen zu befragen?"
-              responses:
-                - text:
-                    en: "Accept the quest"
-                    de: "Nimm die Aufgabe an"
-                  then: accepted
-                - text:
-                    en: "Decline for now"
-                    de: "Vorerst ablehnen"
-                  thenText:
-                    en: "OK. I hope you reconsider."
-                    de: "Ok. Ich hoffe, du überlegst es dir nochmal."
-        - id: accepted
-          type: sequence
-          items:
-            - text:
-                en: "Thank you. I know there’s been complaints from older citizens."
-                de: "Ich danke dir. Ich habe gehört, dass es Beschwerden von älteren Personen gibt."
-            - text:
-                en: "Please talk to someone who looks older (don’t ask their age, please)."
-                de: "Bitte sprich mit jemandem, der älter aussieht (frag bitte nicht nach dem Alter)."
-              set: [ 'quest.store2.active' ]
-    stages:
-      - prompt:
-          en: "Talk to an older citizen (maybe don’t say why you selected them)."
-          de: "Sprich mit einer älteren Person (sag vielleicht nicht, warum du sie ausgewählt hast)."
-        dialogues:
-          mayor:
-            - text:
-                en: "Please talk to someone who looks older (don’t ask their age, please)."
-                de: "Bitte sprich mit jemandem, der älter aussieht (frag bitte nicht nach dem Alter)."
-          _ageOld:
-            - type: sequence
-              items:
-                - text:
-                    en: "The shopping center doesn’t have enough benches to sit on."
-                    de: "Im Einkaufszentrum gibt es nicht genug Bänke zum Sitzen."
-                - text:
-                    en: "They want people buying and moving along!"
-                    de: "Sie wollen, dass die Leute einkaufen und weitergehen!"
-                - text:
-                    en: "My back and legs are fine, but I’m retired and have more free time, so I like to sit."
-                    de: "Meinem Rücken und meinen Beinen geht es gut, aber ich bin im Ruhestand und habe mehr Freizeit, deshalb sitze ich gerne hier."
-                - text:
-                    en: "Thanks for asking. I hope they install some comfortable benches."
-                    de: "Danke für die Nachfrage. Ich hoffe, dass sie ein paar bequeme Bänke aufstellen."
-                  set: [ 'quest.store2.done', 'pnt.freedomSmall.store2' ]
-          _ageNotOld:
-            - type: random
-              items:
-                - text:
-                    en: "What age do you think I am?!"
-                    de: "Für wie alt hältst du mich?!"
-                - text:
-                    en: "What do you mean by “older citizens”?"
-                    de: "Was meinst du mit „älteren Personen”?"
-          _ageYoung:
-            - text:
-                en: "But... I’m younger than you!"
-                de: "Aber... Ich bin jünger als du!"
-  store3:
-    npc: mayor
-    mood: store
-    required: store2
-    available:
-      dialogue:
-        - type: sequence
-          items:
-            - text:
-                en: "The city is hard at work reactivating the shopping center."
-                de: "Die Stadt arbeitet daran, das Einkaufszentrum wieder zu beleben."
-            - text:
-                en: "We need everyone to feel welcome to make it a lively urban hub."
-                de: "Alle sollen sich willkommen fühlen, damit es zu einem lebendigen Stadtteilzentrum wird."
-            - text:
-                en: "Can you help me survey some citizens?"
-                de: "Kannst du mir helfen, einige Bürger*innen zu befragen?"
-              responses:
-                - text:
-                    en: "Accept the quest"
-                    de: "Nimm die Aufgabe an"
-                  then: accepted
-                - text:
-                    en: "Decline for now"
-                    de: "Vorerst ablehnen"
-                  thenText:
-                    en: "OK. I hope you reconsider."
-                    de: "Ok. Ich hoffe, du überlegst es dir nochmal."
-        - id: accepted
-          type: sequence
-          items:
-            - text:
-                en: "Thank you. I know there’s been complaints from parents of small kids."
-                de: "Vielen Dank. Ich habe gehört, dass es Beschwerden von Eltern kleiner Kinder gibt."
-            - text:
-                en: "Please find a parent and find out more."
-                de: "Bitte finde ein Elternteil und erfahre mehr."
-              set: [ 'quest.store3.active' ]
-    stages:
-      - prompt:
-          en: "Talk to a parent with a small kid or baby."
-          de: "Sprich mit einem Elternteil von einem kleinen Kind oder Baby."
-        dialogues:
-            mayor:
-                - text:
-                    en: "Please find a parent and find out more."
-                    de: "Bitte finde ein Elternteil und erfahre mehr."
-            footballFan:
-                - type: sequence
-                  items:
-                    - text:
-                        en: "The shopping center should offer activities for families, like cultural activities."
-                        de: "Das Einkaufszentrum sollte Aktivitäten für Familien anbieten. Zum Beispiel ein Kulturprogramm."
-                    - text:
-                        en: "When the weather is bad, it’s a good place to spend some time away from home…"
-                        de: "Bei schlechtem Wetter ist es ein guter Ort, um eine Weile von zu Hause weg zu sein..."
-                    - text:
-                        en: "… but right now, it’s designed for spending money and leaving quickly."
-                        de: "... aber im Moment ist es nur darauf ausgelegt, schnell Geld auszugeben und wieder zu gehen."
-                    - text:
-                        en: "Thanks for consulting us. I hope the city transforms it into something different."
-                        de: "Danke, dass du uns befragt hast. Ich hoffe, die Stadt gestaltet es zu einem besseren Ort um."
-                      set: [ 'quest.store3.done', 'pnt.freedomLarge.store3' ]
   mardiF:
-    npc: mathFan
+    npc: statistician
     mood: mardi
     available:
       dialogue:
         - type: sequence
           items:
             - text:
-                en: "I need to prepare a presentation on my favorite scientist, Professor Fry."
-                de: "Ich muss ein Referat über meine Lieblingswissenschaftlerin vorbereiten: Professorin Fry."
+                en: "Hi, I am a statistician."
+                de: "..."
             - text:
-                en: "I can’t find her early work, and all search results are mixed with another author by the same name. I am completely lost!"
-                de: "Ich finde nichts zu ihren frühen Werken und die Suchergebnisse sind mit einer anderen Autorin vermischt, die genauso heißt. Ich komme gar nicht weiter!"
+                en: "I have a discrete statistical model and I would like to understand its geometry. I know Dr. Quartz from the Al-Jabr Institute was working on this but I cannot find any of his code online."
+                de: "..."
             - text:
-                en: "Can you help me find more information for my presentation?"
-                de: "Kannst du mir helfen, mehr Informationen für mein Referat zu finden?"
+                en: "Can you help me get his research data?"
+                de: "..."
               responses:
                 - text:
                     en: "Accept the quest"
                     de: "Nimm die Aufgabe an"
                   thenText:
-                    en: "Find out more about Professor Fry’s work."
-                    de: "Finde mehr über das Werk von Professorin Fry heraus."
+                    en: "Thank you! If you have no idea where to start, go to the MaRDI help desk."
+                    de: ""
                   set: [ 'quest.mardiF.active' ]
                 - text:
                     en: "Decline for now"
@@ -1576,109 +1410,92 @@ quests:
                   thenText:
                     en: "OK. I hope you reconsider."
                     de: "Ok. Ich hoffe, du überlegst es dir nochmal."
+                - text:
+                    en: "Why don't you ask him yourself? He is over there."
+                    de: "..."
+                  thenText:
+                    en: "I am afraid of crowds. There are always so many colleagues around him. Come back if you change your mind and want to help me."
+                    de: "..."
     stages:
-      - prompt:
-          en: "Find a source of information on Professor Fry’s work."
-          de: "Finde Infos über die Arbeit von Professorin Fry."
+      - cond: 'found.mardiF.person & ^found.mardiF.carla'
+        prompt:
+          en: "Let Carla Gaudi know."
+          de: "..."
+        target: statistician
         dialogues:
-          mathFan:
+          statistician:
+          - type: sequence
+            items:
+              - text:
+                  en: "Thank you for finding Dr. Quartz's paper and letting me know."
+                  de: "..."
+              - text:
+                  en: "I will read it and see if I can use it for my work. However, I am pretty sure, i will need Dr. Quartz's code as well."
+                  de: "..."
+                set: [ 'found.mardiF.carla' , 'quest.mardiF.done' , 'pnt.freedomSmall.mardiF' , 'op.quest.mardiF' ]  
+          lawyer:
             - text:
-                en: "Go around and ask others for help."
-                de: "Laufe umher und bitte andere um Hilfe."
-          librarian:
-            - type: sequence
-              items:
-                - text:
-                    en: "I will try to find Professor Fry’s first book via the ISBN, a unique number to identify it."
-                    de: "Ich suche das Buch von Professorin Fry über die ISBN, eine eindeutige Nummer zur Identifizierung."
-                - text:
-                    en: ":clock: 1 minute later…"
-                    de: ":clock: 1 Minute später..."
-                - text:
-                    en: "The book was findable, here it is. Please return it later."
-                    de: "Das Buch war auffindbar, hier ist es. Bitte gib es später zurück."
-                  set: [ 'quest.mardiF.done', 'pnt.freedomSmall.mardiF' ]
-          videoBlogger:
-            - type: sequence
-              items:
-                - text:
-                    en: "Oh, I love it when Hannah Fry explains math things in videos!"
-                    de: "Oh, ich liebe es, wenn Hannah Fry coole Mathesachen in ihren Videos erklärt!"
-                - text:
-                    en: "Here are some links to the videos I like the most."
-                    de: "Hier sind ein paar Links zu den Videos, die ich am besten finde."
-                - text:
-                    en: "With this the videos are findable."
-                    de: "Damit sind die Videos auffindbar."
-                  set: [ 'quest.mardiF.done', 'pnt.freedomSmall.mardiF' ]
-          journalist:
-            - type: sequence
-              items:
-                - text:
-                    en: "Professor Fry has presented several television programs and appeared in radio shows. I will search the media archive for you."
-                    de: "Professorin Fry ist einige Male im Fernsehen und in Radiosendungen aufgetreten. Ich werde das Medienarchiv für dich durchsuchen."
-                - text:
-                    en: ":clock: 5 minutes later…"
-                    de: ":clock: 5 Minuten später…"
-                - text:
-                    en: "Here is a list of her appearances. With this list, they are findable online."
-                    de: "Hier ist eine Liste ihrer Auftritte. Damit sind die Sendungen jetzt online auffindbar."
-                  set: [ 'quest.mardiF.done', 'pnt.freedomSmall.mardiF' ]
+                en: "Tell Dr. Gaudi about my paper. It is available online. Maybe she doesn't need the code?"
+                de: "..."
+          mayor:
+            - text:
+                en: "Ah, I know Muhammad, just talked to him during the coffee break."
+                de: "..."
           mardiMathematician:
+            - text:
+                en: "Many German universities and research institutes participate in the different task areas of MaRDI."
+                de: "..."
+          librarian:
+            - text:
+                en: "I :love: the Black Forest, especially in carnival season!"
+                de: "..."
+          mardiHelpDesk:
+            - text:
+                en: "MaRDI is creating a huge Knowledge Graph to collect research data in mathematics and make it available through a single web portal."
+                de: "..."                  
+      - cond: '^found.mardiF.person & ^found.mardiF.carla'
+        prompt:
+          en: "Find the work by Dr. Quartz from the Al-Jabr Institute."
+          de: "..."
+        dialogues:
+          statistician:
+            - text:
+                en: "You could meet him over there and ask him directly."
+                de: ""
+          robot:
+            - text:
+                en: "I did a quick online search for you. He published a paper on implicitization and elimination techniques. However, the corresponding code is not included."
+                de: "..."
+              set: [ 'found.mardiF.person' ]
+          barista:
+            - text:
+                en: "You could ask the robot to do an online search for you."
+                de: "..."
+          librarian:
+            - text:
+                en: "Dr. Quartz published a paper on implicitization and elimination techniques. However, the corresponding code is not included, unfortunately."
+                de: "..."
+              set: [ 'found.mardiF.person' ]
+          mardiHelpDesk:
+            - text:
+                en: "You could ask at the library, if they have any papers or books on implicitization and elimination techniques by that author."
+                de: "..."
+          mayor:
+            - text:
+                en: "Ah, I know Muhammad, just talked to him during the coffee break."
+                de: "..."
+          lawyer:
             - type: sequence
               items:
                 - text:
-                    en: "I have met Professor Fry at a conference."
-                    de: "Ich habe Professorin Fry auf einer Konferenz getroffen."
+                    en: "Yes, I work on implicitization and elimination techniques and can transform a parametrization into an algebraic variety to understand its geometry. The code is stored on my private laptop, though."
+                    de: "..."
                 - text:
-                    en: "Her articles are findable in a scientific online library using her author identifier number."
-                    de: "Ihre Artikel sind über ihre individuelle Personen-Kennnummer in einer wissenschaftlichen Online-Bibliothek auffindbar."
-                - text:
-                    en: "I have access and can download them as PDFs for you."
-                    de: "Ich habe Zugang dazu und kann sie dir als PDF-Dateien herunterladen."
-                  set: [ 'quest.mardiF.done', 'pnt.freedomSmall.mardiF' ]
-          biologist:
-            - type: sequence
-              items:
-                - text:
-                    en: "I don’t know Professor Fry. However, I am interested in learning more about her work."
-                    de: "Ich kenne Professorin Fry nicht. Aber ich bin daran interessiert, mehr über ihre Arbeit zu erfahren."
-                - text:
-                    en: "I hope Libby’s presentation will be available to others and easy to find."
-                    de: "Ich hoffe, Libbys Referat wird dann für andere zugänglich und leicht zu finden sein."
-          _default:
-#            type: shuffle
-            - type: first
-              items:
-                - text:
-                    en: "Sorry, I cannot help you with that."
-                    de: "Tut mir leid, da kann ich dir nicht helfen."
-                - text:
-                    en: "If she is a mathematician, go to the ship that has just docked in the city harbor and ask there."
-                    de: "Wenn sie Mathematikerin ist, frag beim Schiff, das gerade im Stadthafen angelegt hat."
-                - text:
-                    en: "My uncle has a book by Professor Fry. The library might have it."
-                    de: "Mein Onkel hat ein Buch von Professorin Fry. Vielleicht kannst du es in der Bibliothek ausleihen."
-                - text:
-                    en: "I know she has a radio show. Ask the journalist about her."
-                    de: "Ich weiß, dass sie eine Radiosendung hat. Frag mal den Journalisten danach."
-                - text:
-                    en: "Sorry, I cannot help you with that."
-                    de: "Tut mir leid, da kann ich dir nicht helfen."
-                - text:
-                    en: "I know it can be tricky to find the information you are looking for."
-                    de: "Ich weiß, es kann schwierig sein, die Informationen zu finden, die du brauchst."
-                - text:
-                    en: "Have you heard of the data consultant? She might have some general advice for you."
-                    de: "Hast du schon von der Datenberaterin gehört? Sie hat bestimmt ein paar gute allgemeine Ratschläge für dich."
-                - text:
-                    en: "I have seen a cool video she produced. Ask the videoblogger about it."
-                    de: "Ich habe ein cooles Video gesehen, das sie produziert hat. Frag mal den Videoblogger danach."
-                - text:
-                    en: "I have never heard of Professor Fry, sorry."
-                    de: "Von Professorin Fry habe ich noch nie gehört, tut mir leid."
+                    en: "I published a paper on the topic without including the code. Maybe this will help Dr. Gaudi?"
+                    de: "..."
+                  set: [ 'found.mardiF.person' ]
   mardiA:
-    npc: gameDev
+    npc: statistician
     mood: mardi
     required: mardiF
     available:
@@ -1686,21 +1503,20 @@ quests:
         - type: sequence
           items:
             - text:
-                en: "I developed a computer game with my dog Emmy as the main character."
-                de: "Ich habe ein Computerspiel entwickelt und mein Hund Emmy ist die Hauptfigur darin."
+                en: "I read an interesting paper by Dr. Quartz from the Al-Jabr Institute. He also wrote some code, which is not available online."
+                de: "..."
             - text:
-                en: "My friends want to play it, but I have no idea how to make it freely downloadable for everybody."
-                de: "Meine Freunde wollen es spielen, aber ich habe keine Ahnung, wie ich es für sie zugänglich machen kann."
+                en: " I would like to use Dr. Quartz's code to transform a parametrization into an algebraic variety to understand its geometry."
             - text:
-                en: "Can you help me to find out?"
-                de: "Kannst du mir helfen, das herauszufinden?"
+                en: "Can you help me get his code?"
+                de: "..."
               responses:
                 - text:
                     en: "Accept the quest"
                     de: "Nimm die Aufgabe an"
                   thenText:
-                    en: "Get information about sharing computer games."
-                    de: "Suche Informationen, wie man Computerspiele anderen zugänglich macht."
+                    en: "Thank you! Dr. Quartz should be here at the conference."
+                    de: ""
                   set: [ 'quest.mardiA.active' ]
                 - text:
                     en: "Decline for now"
@@ -1709,51 +1525,120 @@ quests:
                     en: "OK. I hope you reconsider."
                     de: "Ok. Ich hoffe, du überlegst es dir nochmal."
     stages:
-      - prompt:
-          en: "Talk to someone at the ship in the city harbor about sharing computer games."
-          de: "Sprich mit jemandem auf dem Schiff im Stadthafen, wie man Computerspiele anderen zugänglich macht."
+      - cond: 'found.mardiF.quartz & found.mardiF.help'
+        prompt:
+          en: "Tell Muhammad Quartz how to share his code."
+          de: "..."
+        target: lawyer
         dialogues:
-          gameDev:
-            - text:
-                en: "Thank you for helping me. Did you ask the mathematician yet?"
-                de: "Danke, dass du mir helfen willst. Hast du schon den Mathematiker gefragt?"
-          mardiMathematician:
+          lawyer:
             - type: sequence
               items:
                 - text:
-                    en: "Your friend can make the game accessible online and upload the source code to an open platform. "
-                    de: "Dein Freund kann das Spiel online zugänglich machen und den Quellcode auf eine offene Plattform laden."
+                    en: "Thank you for letting me know about the different repository options."
+                    de: "..."
                 - text:
-                    en: "Make sure you define who can download it and who can collaborate."
-                    de: "Lege unbedingt fest, wer das Spiel herunterladen und wer es weiterentwickeln darf."
-                  set: [ 'quest.mardiA.done', 'pnt.freedomSmall.mardiA' ]
-          journalist:
-            - text:
-                en: "I know about publishing text and media. For computer games or software, you can ask the mathematician. He will be happy to help you."
-                de: "Ich kenne mich mit der Veröffentlichung von Texten und Medien aus. Zu Computerspielen oder Software kannst du den Mathematiker fragen. Er hilft dir bestimmt gern."
-          videoBlogger:
-            - text:
-                en: "To make games or data accessible, contact the mathematician."
-                de: "Wenn du Spiele oder Daten zugänglich machen möchtest, wende dich an den Mathematiker."
-          _default:
-            - type: first
-#              type: shuffle
+                    en: "I will upload my Julia code during lunch break. Then I will try to find Dr. Gaudi. Maybe we can collaborate in the future."
+                    de: "..."
+                  set: [ 'quest.mardiA.done' , 'pnt.freedomSmall.mardiA' , 'op.quest.mardiA']  
+      - cond: 'found.mardiF.quartz & ^found.mardiF.help'
+        prompt:
+          en: "Ask the MaRDI help desk for the best way to share code."
+          de: "..."
+        target: mardiHelpDesk
+        dialogues:
+          mardiHelpDesk:
+            - type: sequence
               items:
                 - text:
-                    en: "I don’t know anything about sharing computer games."
-                    de: "Keine Ahnung, wie man Computerspiele anderen zugänglich macht."
+                    en: "There are several repositories you can use for your research data: institutional repositories from your university or institute, discipline-specific ones for your research area, or generic ones like Zenodo. "
+                    de: "..."
+                  responses:
+                    - text:
+                        en: "Ok, thank you."
+                        de: "..."
+                    - text:
+                        en: "Which of those is the best choice?"
+                        de: "..."
+                      thenText:
+                        en: "If you are able to find a discipline-specific repository for your research data, this will be the best option for you."
+                        de: "..."
+                  set: [ 'found.mardiF.help' ]
+          mayor:
+            - text:
+                en: "Ah, I know Muhammad, just talked to him during the coffee break."
+                de: "..."
+          lawyer:
+            - text:
+                en: "Please ask at the MaRDI help desk, what is the best way to share my code. I know, they offer a course on managing research data."
+                de: "..."
+          statistician:
+            - text:
+                en: "I really need Dr. Quartz's Julia code. Did you ask him yet to give it to me?"
+                de: "..."
+          mardiMathematician:
+            - text:
+                en: "MaRDI is creating a huge Knowledge Graph to collect research data in mathematics and make it available through a single web portal."
+                de: "..."
+          librarian:
+            - text:
+                en: "Research data in mathematics would include literature, databases, simulations, taxonomies, workflows, code, visualizations, etc. Even a single formula could be considered research data."
+                de: "..."
+      - cond: '^found.mardiF.quartz & ^found.mardiF.help'
+        prompt:
+          en: "Ask Muhammad Quartz to make his code available."
+          de: "..."
+        target: lawyer
+        dialogues:
+          lawyer:
+            - type: sequence
+              items:
                 - text:
-                    en: "The best person to ask for help is the mathematician."
-                    de: "Am besten fragst du den Mathematiker."
+                    en: "I work in Julia using OSCAR and Singular. The code is stored on my private laptop. If Dr. Gaudi is interested, I can make it available for her."
+                    de: "..."
                 - text:
-                    en: "Have you heard of the data consultant? She might have some general advice for you."
-                    de: "Hast du schon von der Datenberaterin gehört? Sie hat bestimmt ein paar gute allgemeine Ratschläge für dich."
-                - text:
-                    en: "I love computergames!"
-                    de: "Ich liebe Computerspiele."
-                - text:
-                    en: "Computer games promote violence!"
-                    de: "Computerspiele fördern Gewalttaten!"
+                    en: "How should I share the data?"
+                    de: "..."
+                  responses:
+                    - text:
+                        en: "Just print out the code. I will carry the stack of paper over to her."
+                        de: "..."
+                      thenText:
+                        en: "I don't like that idea. Please ask at the MaRDI help desk for a better solution. I know, they offer a course on managing research data."
+                        de: "..."
+                    - text:
+                        en: "I am not sure. I will ask at the MaRDI help desk."
+                        de: "..."
+                      thenText:
+                        en: "That's a good idea. I know, they offer a course on managing research data."
+                        de: "..."
+                    - text:
+                        en: "Upload your code to a trusted repository."
+                        de: "..."
+                      thenText:
+                        en: "Please ask at the MaRDI help desk, which kind of repository I should choose. I know, they offer a course on managing research data."
+                        de: "..."
+                  set: [ 'found.mardiF.quartz' ]
+          mayor:
+            - text:
+                en: "Ah, I know Muhammad, just talked to him during the coffee break."
+                de: "..."
+          statitician:
+            - text:
+                en: "I really need Dr. Quartz's code. Did you ask him yet to give it to me?"
+                de: "..."
+          mardiMathematician:
+            - text:
+                en: "MaRDI is creating a huge Knowledge Graph to collect research data in mathematics and make it available through a single web portal."
+                de: "..."
+          librarian:
+            - text:
+                en: "Access to research data is the basis for verifiability and reproducibility."
+                de: "..."
+          mardiHelpDesk:
+            - text:
+                en: "MaRDI includes several task areas, such as Computer Algebra, Scientific Computing, Statistics and Machine Learning, and Cooperation with other disciplines."
+                de: "..."     
   mardiI:
     npc: journalist
     mood: mardi
@@ -1762,21 +1647,21 @@ quests:
         - type: sequence
           items:
             - text:
-                en: "I received a document from a whistleblower. I need the information for my current investigations."
-                de: "Ich habe ein Dokument von einem Whistleblower erhalten. Ich brauche die Infos daraus für meine laufende Recherche."
+                en: "I received data from a secret informant, and I need it for my current investigations."
+                de: ""
             - text:
-                en: "I am stuck since my text editor cannot open the file format!"
-                de: "Ich stecke fest, da mein Texteditor das Dateiformat nicht öffnen kann!"
+                en: "However, I am stuck, since it is written in Klingon language!"
+                de: ""
             - text:
-                en: "Can you help me find a solution?"
-                de: "Kannst du mir helfen, eine Lösung zu finden?"
+                en: "Can you help me find a translation?"
+                de: ""
               responses:
                 - text:
                     en: "Accept the quest"
                     de: "Nimm die Aufgabe an"
                   thenText:
-                    en: "Find a way to open the document."
-                    de: "Finde einen Weg, das Dokument zu öffnen."
+                    en: "Thank you! Please be quick, the topic is hot!"
+                    de: ""
                   set: [ 'quest.mardiI.active' ]
                 - text:
                     en: "Decline for now"
@@ -1785,53 +1670,74 @@ quests:
                     en: "OK. I hope you reconsider."
                     de: "Ok. Ich hoffe, du überlegst es dir nochmal."
     stages:
-      - prompt:
-          en: "Find an expert in file formats to open the document."
-          de: "Finde eine Fachperson für Dateiformate, um das Dokument zu öffnen."
+      - cond: 'found.mardiI.translation'
+        prompt:
+          en: "Go back to the journalist to solve his interoperability problem."
+          de: ""       
+        target: journalist
+        dialogues:
+          journalist:
+            - type: sequence
+              items:
+                - text:
+                    en: "Thank you for getting the secret data translated. I will go get it right now. So curious what it says!"
+                    de: "..."
+                - text:
+                    en: "My life would be so much easier if everything were designed interoperably."
+                    de: "..."
+                  set: [ 'quest.mardiI.done' , 'pnt.freedomSmall.mardiI' , 'op.quest.mardiI']  
+      - cond: '^found.mardiI.translation'
+        prompt:
+          en: "Find a way to translate the secret Klingon data."
+          de: ""
         dialogues:
           mardiMathematician:
             - type: sequence
               items:
                 - text:
-                    en: "We can run a statistical analysis to identify the file format."
-                    de: "Wir können eine statistische Analyse durchführen, um das Dateiformat zu identifizieren."
+                    en: "We can match the message with our language database."
+                    de: ""
                 - text:
                     en: ":clock: 3 minutes later…"
                     de: ":clock: 3 Minuten später..."
                 - text:
-                    en: "It is an old proprietary text format. Here is a program to convert it to a standard text format for you. Now it is interoperable."
-                    de: "Es ist ein altes geschütztes Textformat. Hier ist ein Programm, das es für dich in ein Standard-Textformat umwandelt, und somit verknüpfbar macht."
-                  set: [ 'quest.mardiI.done', 'pnt.freedomSmall.mardiI' ]
+                    en: "We have a translation now. Since it is secret data, the journalist needs to come here himself to pick it up."
+                    de: ""
+                  set: [ 'found.mardiI.translation']
           biologist:
             - text:
-                en: "You can ask the people on the ship that has just docked in the city harbor. They work on all forms and formats of data."
-                de: "Du kannst die Leute auf dem Schiff fragen, das gerade im Stadthafen angelegt hat. Sie arbeiten mit allen Formen und Formaten von Daten."
+                en: "You can ask the people at the ship that has just docked in the city harbor. They connect all sorts of languages."
+                de: ""
           videoBlogger:
-            - text:
-                en: "I have seen many file formats for media. But this one is not in a video format."
-                de: "Ich habe schon viele Multimedia-Dateiformate gesehen. Aber das hier ist kein Videoformat."
+            - type: sequence
+              items:          
+                - text:
+                    en: "I have a nerdy friend who produces videos in Klingon language. I can send him a copy of the text you have."
+                    de: ""
+                - text:
+                    en: ":clock: 3 minutes later…"
+                    de: ":clock: 3 Minuten später..."                
+                - text:
+                    en: "He is happy to prepare a translation. The journalist can pick it up at his studio."
+                    de: ""   
+                  set: [ 'found.mardiI.translation' ]                             
           librarian:
             - type: sequence
               items:
                 - text:
-                    en: "We don’t have a book on old file formats.."
-                    de: "Wir haben kein Buch über alte Dateiformate."
+                    en: "We don’t have a physical Klingon dictionary."
+                    de: ""
                 - text:
-                    en: "The mathematicians at the ship are experts in data formats and interoperbility; you can ask them."
-                    de: "Der Mathematiker auf dem Schiff ist ein Experte für Dateiformate und Verknüpfbarkeit, frag ihn doch mal."
-          _default:
-            - type: first
-#              type: shuffle
-              items:
-                - text:
-                    en: "Sorry, I cannot help you."
-                    de: "Tut mir leid, ich kann dir nicht helfen."
-                - text:
-                    en: "The best person to ask for help is the mathematician."
-                    de: "Am besten fragst du den Mathematiker."
-                - text:
-                    en: "I want an AI assistant to deal with things like that."
-                    de: "Ich möchte einen KI-Assistenten, der sich um solche Dinge kümmert."
+                    en: "The mathematicians at the ship that has just docked in the city harbor do have a large language database, you can ask them"
+                    de: ""
+          journalist:
+            - text:
+                en: "Thank you for trying to help me. Let me know, if you find a solution."
+                de: ""  
+          barista:
+            - text:
+                en: "I think I saw a video of people speaking Klingon, you could ask the video blogger."
+                de: "" 
   mardiR:
     npc: mardiMathematician
     mood: mardi
