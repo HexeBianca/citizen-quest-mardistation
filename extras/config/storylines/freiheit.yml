@@ -48,9 +48,18 @@ npcs:
       de: Flora Notte
     spawn: { x: 3460, y: 1100 }
     dialogue:
+      - cond: 'quest.credit1.done'
+        type: sequence
+        items:
           - text:
-              en: "I am a mathematician."
-              de: ""              
+              en: "I am a mathematician, specializing in mathematical neurosciene. I am part of this cool, interdisciplinary collaboration."
+              de: ""
+          - text:
+              en: "I am responsible for SUPERVISION, CONCEPTUALIZATION, and PROJECT ADMINISTRATION."
+              de: ""           
+      - text:
+          en: "I am a mathematician, specializing in mathematical neurosciene."
+          de: ""              
   videoBlogger:
     name:
       en: Videoblogger
@@ -68,9 +77,14 @@ npcs:
     spawn: { x: 3340, y: 1300 }
     dialogue:
       - cond: 'quest.credit1.done'
-        text:
-          en: "I am part of this cool collaboration."
-          de: ""
+        type: sequence
+        items:
+          - text:
+              en: "I am a PhD student in math, Flora Notte is my advisor. I am part of this cool collaboration."
+              de: ""
+          - text:
+              en: "I am responsible for WRITING - ORIGINAL DRAFT, and I will also help with FORMAL ANALYSIS, INVESTIGATION and DATA CURATION."
+              de: ""
       - text:
           en: "I am a PhD student in math. Flora Notte is my advisor."
           de: ""
@@ -79,7 +93,6 @@ npcs:
       en: Barista
       de: Barista
     spawn: { x: 4138, y: 3680 }
-    actAs: ['_fakeNews3FewFollowers', '_ageNotOld']
     dialogue:
       - text:
           en: "I’m training for the World Barista Championship."
@@ -222,7 +235,7 @@ npcs:
     cond: '^(quest.credit1.done & (^quest.credit1.active | quest.credit1.local))'    
     dialogue:
       - text:
-          en: "I participate in the math conference and gave a talk yesterday."
+          en: "I am a biologist and participate in the conference. I gave a talk yesterday on cognitive neuroscience."
           de: ""
   dogTan:
     name:
@@ -241,9 +254,14 @@ npcs:
     spawn: { x: 3160, y: 1200 }
     cond: 'quest.credit1.done'    
     dialogue:
-      - text:
-          en: "I collaborate in this interdisciplinary project."
-          de: ""
+      - type: sequence
+        items:
+          - text:
+              en: "I am a biologist and participate in the conference. I gave a talk yesterday on cognitive neuroscience, and now I collaborate in this cool, interdisciplinary project."
+              de: ""
+          - text:
+              en: "I am responsible for DATA CURATION, FORMAL ANALYSIS, and VALIDATION. I also help with CONCEPTUALIZATION and INVESTIGATION."
+              de: ""
   dog2:
     name:
       en: "Emmy"
@@ -276,14 +294,41 @@ npcs:
           de: ""
   citizenYoga:
     name:
-      en: "Neighbor"
-      de: "Nachbarin"
+      en: "Jane Allgood"
+      de: "Jane Allgood"
     type: citizenTennis
-    spawn: { x: 4029, y: 2430 }
+    spawn: { x: 4029, y: 2430 }   
+    cond: '^(quest.credit2.done & (^quest.credit2.active | quest.credit2.local))'   
     dialogue:
       - text:
-          en: "We have an open yoga session here every Wednesday. Come!"
-          de: "Wir haben hier jeden Mittwoch eine offene Yogastunde. Komm vorbei!"
+          en: "I am a biologist. I love animals and yoga."
+          de: ""
+  citizenYoga2:
+    name:
+      en: "Jane Allgood"
+      de: "Jane Allgood"
+    type: citizenTennis
+    spawn: { x: 3260, y: 1300 }
+    cond: 'quest.credit2.done' 
+    dialogue:
+      - type: sequence
+        items:
+          - text:
+              en: "I am a biologist and I collaborate in this cool, interdisciplinary project."
+              de: ""
+          - text:
+              en: "I am responsible for METHODOLOGY and INVESTIGATION."
+              de: ""
+  citizenLila:
+    name:
+      en: "Jo Marshal"
+      de: "Jo Marshal"
+    type: citizenLila
+    spawn: { x: 4100, y: 2460 }  
+    dialogue:
+      - text:
+          en: "I am a yoga instructor."
+          de: ""
   robot:
     name:
       en: "Robot"
@@ -351,24 +396,6 @@ scenery:
     spawn: { x: 5145, y: 2281 }
   babyCart:
     spawn: { x: 4420, y: 1841 }
-  drums:
-    spawn: { x: 2872, y: 796 }
-    layer: back
-    zIndex: 1
-    cond: 'quest.band2.done & (^quest.band2.active | quest.band2.local)'
-  singer:
-    spawn: { x: 2905, y: 869 }
-    layer: back
-    zIndex: 3
-    cond: 'quest.band3.done & (^quest.band3.active | quest.band3.local)'
-  guitar:
-    spawn: { x: 2768, y: 878 }
-    layer: back
-    zIndex: 4
-    cond: 'quest.band1.done & (^quest.band1.active | quest.band1.local)'
-  queue:
-    spawn: { x: 4284, y: 737 }
-    cond: 'quest.fakeNews3.done'
   fairF:
     spawn: { x: 5951, y: 3032 }
     layer: back
@@ -434,10 +461,13 @@ quests:
             - type: sequence
               items:
                 - text:
-                    en: "It is a great idea to collaborate on this article."
+                    en: "It is a great idea to collaborate on this article. Thank you for inviting me. "
                     de: ""
                 - text:
-                    en: "Thank you for inviting me. I will join the team at the blackboard. Come by there any time to chat."
+                    en: "I can be responsible for DATA CURATION, FORMAL ANALYSIS, and VALIDATION."
+                    de: ""
+                - text:
+                    en: "I can also help with CONCEPTUALIZATION and INVESTIGATION. I will join the team at the blackboard. Come by there any time to chat."
                     de: ""
                   set: [ 'quest.credit1.done', 'pnt.freedomSmall.credit1', 'quest.credit1.local' ]    
       - cond: '^found.credit1.flora'
@@ -454,15 +484,69 @@ quests:
             - type: sequence
               items:
                 - text:
-                    en: "Yes, the talk yesterday was very inspring. It was given by Mike Backmill. I think he’s more on the experimental side, and he could help with modeling. "
+                    en: "Yes, the talk yesterday on cognitive neuroscience was very inspring. It was given by Mike Backmill. I think he’s more on the experimental side, and he could help with modeling. "
                     de: ""
                 - text:
-                    en: "It would be great to have him on board for this collaboration. He and I could be responsible for CONCEPTUALIZATION."
+                    en: "He and I could be responsible for CONCEPTUALIZATION. Additionally he could be the lead for DATA CURATION and VALIDATION ."
                     de: ""
                 - text:
                     en: "Mike brought his dog to the conference. You might find him in the park."
                     de: ""
                   set: [ 'found.credit1.flora' ]                        
+  credit2:
+    npc: gameDev2
+    mood: interrogation
+    required: credit1
+    available:
+      dialogue:
+        - type: sequence
+          items:
+            - text:
+                en: "I am participating in this collaborative project on cognitive neuroscience. I work together with Flora and her PhD student Maxi."
+                de: ""
+            - text:
+                en: "For this kind of project we will need some good experimental data. We work closely with the wildlife reserve, and my colleague Jane Allgood goes there regularly to collect data."
+                de: ""
+            - text:
+                en: "Jane could join the project and help Maxi with INVESTIGATION. She can also be responsible for METHODOLOGY. Could you find her for us?"
+                de: ""
+              responses:
+                - text:
+                    en: "Accept the quest"
+                    de: "Nimm die Aufgabe an"
+                  thenText:
+                    en: "Thank you! Jane often does Yoga near the pond. You will find her there."
+                    de: ""
+                  set: [ 'quest.credit2.active' ]
+                - text:
+                    en: "Decline for now"
+                    de: "Vorerst ablehnen"
+                  thenText:
+                    en: "OK. I hope you reconsider."
+                    de: "Ok. Ich hoffe, du überlegst es dir nochmal."  
+    stages:
+      - cond: '^found.credit2.jane'
+        prompt:
+          en: "Ask Jane to collaborate in the project."
+          de: ""
+        dialogues:
+          gameDev2:
+            - text:
+                en: "Jane does yoga near the pond. Go find her there."
+                de: ""
+          citizenYoga:
+            - type: sequence
+              items:
+                - text:
+                    en: "Yes, I would love to collaborate in this project. Thank you for inviting me. I will join the team at the blackboard."
+                    de: ""
+                - text:
+                    en: "For collecting the data, we will need some special funding. We need to pay the wildlife reserve for using their facilities."
+                    de: ""
+                - text:
+                    en: "So, in the future, we will need to find someone doing FUNDING ACQUISITION for this project."
+                    de: ""
+                  set: [ 'quest.credit2.done', 'pnt.freedomSmall.credit2', 'quest.credit2.local' ]     
   mardiF:
     npc: statistician
     mood: interrogation
