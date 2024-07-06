@@ -131,8 +131,8 @@ npcs:
     spawn: { x: 4138, y: 3680 }
     dialogue:
       - text:
-          en: "I’m training for the World Barista Championship."
-          de: "Ich trainiere für die Baristaweltmeisterschaft."
+          en: "A mathematician is a machine for turning coffee into theorems."
+          de: ""
   windowCleaner:
     name:
       en: Window Cleaner
@@ -140,14 +140,9 @@ npcs:
     type: windowWasher
     spawn: { x: 272, y: 3234 }
     dialogue:
-      - type: sequence
-        items:
-          - text:
-              en: "I asked for a raise, because my rent went up, but my boss said no. "
-              de: "Ich habe um eine Gehaltserhöhung gebeten, weil meine Miete gestiegen ist, aber mein Chef hat abgelehnt."
-          - text:
-              en: "My boss is an AI. My landlord is also an AI."
-              de: "Mein Chef ist eine KI. Mein Vermieter ist auch eine KI."
+      - text:
+          en: "Hi. My boss is an AI. My landlord is also an AI."
+          de: ""
   driver:
     name:
       en: Driver
@@ -169,8 +164,8 @@ npcs:
           de: ""
   mardiMathematician:
     name:
-      en: Mathematician
-      de: Mathematiker
+      en: Matti Brickmaker
+      de: Matti Brickmaker
     type: citizenPunk
     spawn: { x: 6300, y: 3334 }
     dialogue:
@@ -692,14 +687,8 @@ quests:
                   thenText:
                     en: "OK. I hope you reconsider."
                     de: "Ok. Ich hoffe, du überlegst es dir nochmal."
-                - text:
-                    en: "Why don't you ask him yourself? He is over there."
-                    de: "..."
-                  thenText:
-                    en: "I am afraid of crowds. There are always so many colleagues around him. Come back if you change your mind and want to help me."
-                    de: "..."
     stages:
-      - cond: 'found.mardiF.person & ^found.mardiF.carla'
+      - cond: 'found.mardiF.person'
         prompt:
           en: "Let Carla Gaudi know."
           de: "..."
@@ -714,7 +703,7 @@ quests:
               - text:
                   en: "I will read it and see if I can use it for my work. However, I am pretty sure, I will need Dr. Quartz's code as well."
                   de: "..."
-                set: [ 'found.mardiF.carla' , 'quest.mardiF.done' , 'pnt.freedomSmall.mardiF' , 'op.quest.mardiF' ]  
+                set: [ 'quest.mardiF.done' , 'pnt.freedomSmall.mardiF' ]  
           lawyer:
             - text:
                 en: "Tell Dr. Gaudi about my paper. It is available online. Maybe she doesn't need the code?"
@@ -735,14 +724,14 @@ quests:
             - text:
                 en: "MaRDI is creating a huge Knowledge Graph to collect research data in mathematics and make it available through a single web portal."
                 de: "..."                  
-      - cond: '^found.mardiF.person & ^found.mardiF.carla'
+      - cond: '^found.mardiF.person'
         prompt:
           en: "Find the work by Dr. Quartz from the Al-Jabr Institute."
           de: "..."
         dialogues:
           statistician:
             - text:
-                en: "You could meet him over there and ask him directly."
+                en: "He is participating in this conference, so you should be able to find him on campus."
                 de: ""
           robot:
             - text:
@@ -766,6 +755,47 @@ quests:
             - text:
                 en: "Ah, I know Muhammad, just talked to him during the coffee break."
                 de: "..."
+          citizenAqua:
+            - text:
+                en: "He is participating in this conference. I saw him a few minutes ago, he cannot be far."
+                de: ""
+          artist:
+            - text:
+                en: "Have you checked at the library for his work?"
+                de: ""
+          journalist:
+            - text:
+                en: "I interviewd him about his work on implicitization and elimination techniques. He should be around."
+                de: ""
+          biologist:
+            - text:
+                en: "I met him yesterday here at the conference. He is wearing glasses and a suit."
+                de: ""
+          citizenComp:
+            - text:
+                en: "I know of his work. You should be able to find it at the library."
+                de: ""
+          citizenLila:
+            - text:
+                en: "He came to my yoga class, yesterday. I have not seen him today, though. He is not in the park at the moment."
+                de: ""
+          gameDev:
+            - text:
+                en: "I met him at this conference. However, he is afraid of dogs, so he is probably on the other side of the campus."
+                de: ""
+          mardiMathematician:
+            - type: sequence
+              items:
+                - text:
+                    en: "Muhammad Quartz? I will search our database for you."
+                    de: "..."
+                - text:
+                    en: ":clock: 3 minutes later…"
+                    de: ":clock: 3 Minuten später..."
+                - text:
+                    en: "He published a paper on implicitization and elimination techniques without including the code. Maybe this will help Dr. Gaudi?"
+                    de: "..."
+                  set: [ 'found.mardiF.person' ]
           lawyer:
             - type: sequence
               items:
@@ -785,7 +815,7 @@ quests:
         - type: sequence
           items:
             - text:
-                en: "I read an interesting paper by Dr. Quartz from the Al-Jabr Institute. He also wrote some code, which is not available online."
+                en: "I read an interesting paper by Dr. Quartz from the Al-Jabr Institute. He also wrote some code, which is not accessible online."
                 de: "..."
             - text:
                 en: " I would like to use Dr. Quartz's code to transform a parametrization into an algebraic variety to understand its geometry."
@@ -797,7 +827,7 @@ quests:
                     en: "Accept the quest"
                     de: "Nimm die Aufgabe an"
                   thenText:
-                    en: "Thank you! Dr. Quartz should be here at the conference."
+                    en: "Thank you! Dr. Quartz should be here at the conference. Please find him for me and ask him for the code."
                     de: ""
                   set: [ 'quest.mardiA.active' ]
                 - text:
@@ -820,9 +850,9 @@ quests:
                     en: "Thank you for letting me know about the different repository options."
                     de: "..."
                 - text:
-                    en: "I will upload my Julia code during lunch break. Then I will try to find Dr. Gaudi. Maybe we can collaborate in the future."
+                    en: "I will upload my Julia code during lunch break, so it is accessible to Dr. Gaudi."
                     de: "..."
-                  set: [ 'quest.mardiA.done' , 'pnt.freedomSmall.mardiA' , 'op.quest.mardiA']  
+                  set: [ 'quest.mardiA.done' , 'pnt.freedomSmall.mardiA' ]  
       - cond: 'found.mardiF.quartz & ^found.mardiF.help'
         prompt:
           en: "Ask the MaRDI help desk for the best way to share code."
@@ -876,7 +906,7 @@ quests:
             - type: sequence
               items:
                 - text:
-                    en: "I work in Julia using OSCAR and Singular. The code is stored on my private laptop. If Dr. Gaudi is interested, I can make it available for her."
+                    en: "I work in Julia using OSCAR and Singular. The code is stored on my private laptop. If Dr. Gaudi is interested, I can make it accessible to her."
                     de: "..."
                 - text:
                     en: "How should I share the data?"
@@ -967,7 +997,7 @@ quests:
                 - text:
                     en: "My life would be so much easier if everything were designed interoperably."
                     de: "..."
-                  set: [ 'quest.mardiI.done' , 'pnt.freedomSmall.mardiI' , 'op.quest.mardiI']  
+                  set: [ 'quest.mardiI.done' , 'pnt.freedomSmall.mardiI']  
       - cond: '^found.mardiI.translation'
         prompt:
           en: "Find a way to translate the secret Klingon data."
@@ -1010,7 +1040,7 @@ quests:
                     en: "We don’t have a physical Klingon dictionary."
                     de: ""
                 - text:
-                    en: "The mathematicians at the ship that has just docked in the city harbor do have a large language database, you can ask them"
+                    en: "The mathematicians at the ship that has just docked in the city harbor do have a large language database, you can ask them."
                     de: ""
           journalist:
             - text:
@@ -1020,30 +1050,54 @@ quests:
             - text:
                 en: "I think I saw a video of people speaking Klingon, you could ask the video blogger."
                 de: "" 
+          artist:
+            - text:
+                en: "I would love to go to the planet Epsilon Sagittarii B, but flights are expensive."
+                de: "" 
+          citizenAqua:
+            - text:
+                en: "Why don’t we all speak Esperanto?"
+                de: "" 
+          lawyer:
+            - text:
+                en: "You could ask the robot for help. He is an expert on interoperability."
+                de: "" 
+          robot:
+            - type: sequence
+              items:
+                - text:
+                    en: "I can match the message with my internal language database."
+                    de: ""
+                - text:
+                    en: ":clock: 1 minutes later…"
+                    de: ":clock: 1 Minute später..."
+                - text:
+                    en: "I have a translation now. Since it is secret data, the journalist needs to meet me in person in order to get it."
+                    de: ""
+                  set: [ 'found.mardiI.translation']
   mardiR:
     npc: mardiMathematician
     mood: interrogation
-    required: [ mardiF, mardiA, mardiI ]
     available:
       dialogue:
         - type: sequence
           items:
             - text:
-                en: "With our tool you can upload a photo of a petrified dinosaur footprint and get an analysis."
-                de: "Mit unserer neuen Software kannst du ein Foto eines versteinerten Dinosaurier-Fußabdrucks hochladen und analysieren lassen."
+                en: "We developed a tool, that let's you upload a photo of a petrified dinosaur footprint and gives an analysis in real time. We still need to test it though."
+                de: "Wir haben eine Software entickelt, mit der kannst du ein Foto eines versteinerten Dinosaurier-Fußabdrucks hochladen und in Echtzeit analysieren lassen. Wir müssen es aber noch testen."
             - text:
-                en: "We got pictures from the university, but the locations and dimensions are missing.  Without them, we can’t reuse the pictures."
-                de: "Wir haben Bilder von der Universität bekommen, aber da fehlt überall der Standort und die Abmessungen. Ohne diese Information können wir die Bilder nicht wiederverwenden."
+                en: "For the testing, we got pictures from the university, showing real dinosaur footprints. However, the locations and dimensions are missing. Without these metadata, we can’t reuse the pictures."
+                de: "Um es zu testen, haben wir Bilder von der Universität von echten Dinosaurier-Fußabdrücken bekommen, aber da fehlt überall der Standort und die Abmessungen. Ohne diese Metadaten können wir die Bilder nicht wiederverwenden."
             - text:
-                en: "We are stuck. Can you help me get the missing data from the university?"
-                de: "Wir stecken fest. Kannst du uns helfen, die fehlenden Daten von der Universität zu bekommen?"
+                en: "Can you help us get the missing metadata from the university?"
+                de: "Kannst du uns helfen, die fehlenden Metadaten von der Universität zu bekommen?"
               responses:
                 - text:
                     en: "Accept the quest"
                     de: "Nimm die Aufgabe an."
                   thenText:
-                    en: "Talk to the scientist at the university."
-                    de: "Sprich mit der Wissenschaftlerin an der Universität."
+                    en: "Thank you! Talk to the scientist at the biology institute. This will help us a lot."
+                    de: "Danke! Sprich mit der Wissenschaftlerin am Institut für Biologie. Das wird uns weiter helfen."
                   set: [ 'quest.mardiR.active' ]
                 - text:
                     en: "Decline for now"
@@ -1053,58 +1107,44 @@ quests:
                     de: "Ok. Ich hoffe, du überlegst es dir nochmal."
     stages:
       - prompt:
-          en: "Talk to the biologist at the university."
-          de: "Sprich mit der Biologin an der Universität."
+          en: "Talk to the scientist at the biology institute."
+          de: "Sprich mit der Wissenschaftlerin am Institut für Biologie."
         target: biologist
         dialogues:
           mardiMathematician:
             - text:
-                en: "Thank you for helping  me. You should go and talk to someone at the university."
-                de: "Danke, dass du mir hellfen willst. Am besten fragst du jemanden an der Universität."
+                en: "Thank you for helping  me. You should go and talk to someone at the biology institute."
+                de: "Danke, dass du mir hellfen willst. Am besten fragst du jemanden vom Institut für Biologie."
           biologist:
             - type: sequence
               items:
                 - text:
-                    en: "We were not aware that including the locations and dimensions is essential."
-                    de: "Uns war nicht bewusst, dass die Standortangaben und Abmessungen wesentlich sind."
+                    en: "We were not aware that including metadata like the locations and dimensions is essential."
+                    de: "Uns war nicht bewusst, dass Metadaten wie zum Beispiel die Standortangaben und Abmessungen wesentlich sind."
                 - text:
-                    en: "I understand now that you need more than just the pictures for free reuse."
-                    de: "Ich verstehe jetzt, dass man für eine freie Wiederverwendung mehr braucht als nur die Bilder."
+                    en: "I understand now that you need more than just the pictures for free reuse. Metadata must be included as well!"
+                    de: "Ich verstehe jetzt, dass man für eine freie Wiederverwendung mehr braucht als nur die Bilder. Metadaten müssen auch enthalten sein!"
                 - text:
                     en: ":clock: …30 minutes later"
                     de: ":clock: …30 Minuten später"
                 - text:
-                    en: "We have now uploaded a new version of the dataset with everything included. That way the data is reusable."
-                    de: "Wir haben jetzt eine neue Version des Datensatzes hochgeladen, in der alles enthalten ist. So sind die Daten wiederverwendbar."
-                  set: [ 'quest.mardiR.done', 'pnt.freedomLarge.mardiR' ]
+                    en: "We have now uploaded a new version of the dataset with all metadata included. That way the data is reusable."
+                    de: "Wir haben jetzt eine neue Version des Datensatzes hochgeladen, in der alle Metadaten enthalten ist. So sind die Daten wiederverwendbar."
+                  set: [ 'quest.mardiR.done', 'pnt.freedomSmall.mardiR' ]
 ending:
   dialogue:
-    - cond: 'COUNT("pnt.") >= 16'
-      text:
-        en: "A perfect job! Thanks to your help, citizens are now making decisions about their future together, ensuring everyone is included. Their outlook on the future couldn’t be better."
-        de: "Perfekte Arbeit! Dank Deiner Hilfe treffen die Bürger*innen jetzt gemeinsam Entscheidungen über ihre Zukunft und stellen sicher, dass alle einbezogen werden. Die Aussicht auf ihre Zukunft könnte nicht besser sein."
-    - cond: 'COUNT("pnt.") >= 12'
-      text:
-        en: "Great job! Thanks to your help, citizens feel confident and included in their community’s future. There are still some challenges to their Freedom, but everything can be achieved by working together."
-        de: "Tolle Arbeit! Dank Deiner Hilfe fühlen sich die Bürger*innen zuversichtlich und in die Zukunft ihrer Gemeinschaft eingebunden. Es gibt immer noch einige Herausforderungen für ihre Freiheit, aber alles kann erreicht werden, indem alle zusammenarbeiten."
-    - cond: 'COUNT("pnt.") >= 9'
-      text:
-        en: "Good job! You made a difference! Citizens are embracing their role in ensuring everyone’s Freedom. New challenges still emerge, and you can keep working together for a better future."
-        de: "Gute Arbeit! Du hast einen Unterschied gemacht! Die Bürger*innen erkennen ihre Verantwortung und setzen sich für die Freiheit aller ein. Neue Herausforderungen tauchen immer noch auf, und du kannst dich noch weiter für eine bessere Zukunft einsetzen."
-    - cond: 'COUNT("pnt.") >= 6'
-      text:
-        en: "Thanks to your efforts, many citizens feel more hopeful and empowered to take charge of their future. Big challenges to this community’s Freedom still lie ahead, but with your help, they can also be tamed."
-        de: "Dank deiner Bemühungen fühlen sich viele Bürger*innen voll Hoffnung und ermächtigt, ihre Zukunft selbst in die Hand zu nehmen. Es gibt noch große Herausforderungen für die Freiheit, aber mit deiner Hilfe können auch sie gemeistert werden."
-    - cond: 'COUNT("pnt.") >= 3'
-      text:
-        en: "You’ve taken the first step towards improving these citizens’ Freedom. Although the challenges are still many, and the path ahead is still uncertain, your actions have given everyone hope. Continue the effort, and the future will surely be bright."
-        de: "Du hast den ersten Schritt getan, um die Freiheit der Bürger*innen zu verbessern. Obwohl die Herausforderungen noch zahlreich sind und der Weg nach vorn ungewiss ist, haben deine Aktionen allen Hoffnung gegeben. Mache weiter so und die Zukunft wird besser werden."
-    - cond: 'COUNT("pnt.") >= 1'
-      text:
-        en: "Citizens don’t feel positively about the future. Social, technological, and political challenges to their Freedom seem almost impossible to overcome. But you helped make a small difference, and there’s always another chance to improve things…"
-        de: "Die Bürger*innen haben kein gutes Gefühl zu ihrer Zukunft. Soziale, technologische und politische Herausforderungen für ihre Freiheit scheinen fast unüberwindbar. Aber du hast einen kleinen Unterschied gemacht. Und, es gibt immer eine weitere Chance, die Dinge zu verbessern…"
-    - text:
-        en: "Citizens are very worried about the future. Social, technological, and political challenges to their Freedom seem impossible to overcome. But there’s always another chance to improve things…"
-        de: "Die Bürger*innen machen sich große Sorgen um die Zukunft. Soziale, technologische und politische Herausforderungen für ihre Freiheit scheinen unüberwindbar. Aber es gibt immer eine weitere Chance, die Dinge zu verbessern…"
+    - type: sequence
+      items:
+        - text:
+          class: 'citizensEmpowered'
+          type: sequence
+          items:
+            - text: 
+                en: 'Thank you for playing.'
+                de: ""
+        - cond: 'COUNT("pnt.") >= 1'
+          text:
+            en: "You solved at least one quest."
+            de: ""
 
 
