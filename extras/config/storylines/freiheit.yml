@@ -48,7 +48,7 @@ npcs:
       de: Flora Notte
     spawn: { x: 3460, y: 1100 }
     dialogue:
-      - cond: 'quest.credit1.done'
+      - cond: 'quest.credit1.done & ^quest.credit2.done & ^quest.credit3.done'
         type: sequence
         items:
           - text:
@@ -56,7 +56,28 @@ npcs:
               de: ""
           - text:
               en: "I am responsible for SUPERVISION, CONCEPTUALIZATION, and PROJECT ADMINISTRATION."
-              de: ""           
+              de: ""        
+      - cond: 'quest.credit2.done & ^quest.credit3.done'
+        type: sequence
+        items:
+          - text:
+              en: "I am a mathematician, specializing in mathematical neurosciene. I am part of this cool, interdisciplinary collaboration."
+              de: ""
+          - text:
+              en: "I am responsible for SUPERVISION, CONCEPTUALIZATION, and PROJECT ADMINISTRATION. I found a colleage who is now responsible for FUNDING ACQUISITION."
+              de: ""          
+      - cond: 'quest.credit3.done'
+        type: sequence
+        items:
+          - text:
+              en: "I am a mathematician, specializing in mathematical neurosciene. I am part of this cool, interdisciplinary collaboration."
+              de: ""
+          - text:
+              en: "I am responsible for SUPERVISION, CONCEPTUALIZATION, and PROJECT ADMINISTRATION. I found a colleage who is now responsible for FUNDING ACQUISITION."
+              de: ""    
+          - text:
+              en: "My PhD student Maxi is focussing on her role of WRITING - ORIGINAL DRAFT at the moment, and I will be responsible for WRITING - REVIEW&EDITING later."
+              de: ""   
       - text:
           en: "I am a mathematician, specializing in mathematical neurosciene."
           de: ""              
@@ -76,14 +97,29 @@ npcs:
     type: citizenWheelchair
     spawn: { x: 3340, y: 1300 }
     dialogue:
-      - cond: 'quest.credit1.done'
+      - cond: 'quest.credit1.done & ^quest.credit2.done & ^quest.credit3.done'
+        type: sequence
+        items:
+          - text:
+              en: "I am a PhD student in math, Flora Notte is my advisor. I am part of this cool collaboration. I am responsible for INVESTIGATION."
+              de: ""
+      - cond: 'quest.credit1.done & quest.credit2.done & ^quest.credit3.done'
         type: sequence
         items:
           - text:
               en: "I am a PhD student in math, Flora Notte is my advisor. I am part of this cool collaboration."
               de: ""
           - text:
-              en: "I am responsible for WRITING - ORIGINAL DRAFT, and I will also help with FORMAL ANALYSIS, INVESTIGATION and DATA CURATION."
+              en: "I am responsible for INVESTIGATION, and I will also help with FORMAL ANALYSIS and DATA CURATION."
+              de: ""
+      - cond: 'quest.credit3.done'
+        type: sequence
+        items:
+          - text:
+              en: "I am a PhD student in math, Flora Notte is my advisor. I am part of this cool collaboration."
+              de: ""
+          - text:
+              en: "I am responsible for INVESTIGATION, WRITING - ORIGINAL DRAFT and VISUALIZATION, and I will also help with FORMAL ANALYSIS and DATA CURATION."
               de: ""
       - text:
           en: "I am a PhD student in math. Flora Notte is my advisor."
@@ -317,7 +353,7 @@ npcs:
               en: "I am a biologist and I collaborate in this cool, interdisciplinary project."
               de: ""
           - text:
-              en: "I am responsible for METHODOLOGY and INVESTIGATION."
+              en: "I am responsible for METHODOLOGY and INVESTIGATION. The wildlife reserve is providing the RESOURCES."
               de: ""
   citizenLila:
     name:
@@ -329,6 +365,33 @@ npcs:
       - text:
           en: "I am a yoga instructor."
           de: ""
+  citizenComp:
+    name:
+      en: Franciszek Snowpinski 
+      de: Franciszek Snowpinski 
+    type: citizenChamp
+    spawn: { x: 3990, y: 3700 }
+    cond: '^(quest.credit3.done & (^quest.credit3.active | quest.credit3.local))'   
+    dialogue:
+      - text:
+          en: "Hi. I do computational combinatorics."
+          de: ""
+  citizenComp2:
+    name:
+      en: "Franciszek Snowpinski"
+      de: "Franciszek Snowpinski"
+    type: citizenChamp
+    spawn: { x: 3410, y: 1220 }
+    cond: 'quest.credit3.done' 
+    dialogue:
+      - type: sequence
+        items:
+          - text:
+              en: "I collaborate in this cool, interdisciplinary project on neuroscience."
+              de: ""
+          - text:
+              en: "I do computational combinatorics. In this project, I am responsible for SOFTWARE."
+              de: ""
   robot:
     name:
       en: "Robot"
@@ -525,8 +588,7 @@ quests:
                     en: "OK. I hope you reconsider."
                     de: "Ok. Ich hoffe, du überlegst es dir nochmal."  
     stages:
-      - cond: '^found.credit2.jane'
-        prompt:
+      - prompt:
           en: "Ask Jane to collaborate in the project."
           de: ""
         dialogues:
@@ -538,15 +600,68 @@ quests:
             - type: sequence
               items:
                 - text:
-                    en: "Yes, I would love to collaborate in this project. Thank you for inviting me. I will join the team at the blackboard."
-                    de: ""
-                - text:
                     en: "For collecting the data, we will need some special funding. We need to pay the wildlife reserve for using their facilities."
                     de: ""
                 - text:
                     en: "So, in the future, we will need to find someone doing FUNDING ACQUISITION for this project."
                     de: ""
-                  set: [ 'quest.credit2.done', 'pnt.freedomSmall.credit2', 'quest.credit2.local' ]     
+                - text:
+                    en: "But yes, I would love to collaborate in this project. Thank you for inviting me. I will join the team at the blackboard."
+                    de: ""
+                  set: [ 'quest.credit2.done', 'pnt.freedomSmall.credit2', 'quest.credit2.local' ]    
+  credit3:
+    npc: citizenAqua
+    mood: interrogation
+    required: credit2
+    available:
+      dialogue:
+        - type: sequence
+          items:
+            - text:
+                en: "I am supervizing this collaborative project on cognitive neuroscience. Jane joined the team and is responsible for METHODOLOGY. She collected interesting data at the wildlife reserve.  "
+                de: ""
+            - text:
+                en: "This data of neuronal connections is like a huge graph. We need to compute some invariants of the graph, like its centrality or diameter. "
+                de: ""
+            - text:
+                en: "Franciszek Snowpinski is an expert on computational combinatorics. Can you ask him to join our team and be responsible for SOFTWARE?"
+                de: ""
+              responses:
+                - text:
+                    en: "Accept the quest"
+                    de: "Nimm die Aufgabe an"
+                  thenText:
+                    en: "Thank you! Franciszek likes good coffe. You might find him at the coffee stand."
+                    de: ""
+                  set: [ 'quest.credit3.active' ]
+                - text:
+                    en: "Decline for now"
+                    de: "Vorerst ablehnen"
+                  thenText:
+                    en: "OK. I hope you reconsider."
+                    de: "Ok. Ich hoffe, du überlegst es dir nochmal."  
+    stages:
+      - prompt:
+          en: "Ask Franciszek to collaborate in the project."
+          de: ""
+        dialogues:
+          citizenAqua:
+            - text:
+                en: "Franciszek might be at the coffee stand."
+                de: ""
+          citizenComp:
+            - type: sequence
+              items:
+                - text:
+                    en: "Yes, I am happy to collaborate in this project. I can be responsible for SOFTWARE and prepare some scripts to calculate the invariants of the graph. "
+                    de: ""
+                - text:
+                    en: "Someone else will need to be responsible for WRITING - ORIGINAL DRAFT and VISUALIZATION, though."
+                    de: ""
+                - text:
+                    en: "Thank you for inviting me to this collaboration. I will join the team at the blackboard."
+                    de: ""
+                  set: [ 'quest.credit3.done', 'pnt.freedomSmall.credit3', 'quest.credit3.local' ]      
   mardiF:
     npc: statistician
     mood: interrogation
@@ -597,7 +712,7 @@ quests:
                   en: "Thank you for finding Dr. Quartz's paper and letting me know."
                   de: "..."
               - text:
-                  en: "I will read it and see if I can use it for my work. However, I am pretty sure, i will need Dr. Quartz's code as well."
+                  en: "I will read it and see if I can use it for my work. However, I am pretty sure, I will need Dr. Quartz's code as well."
                   de: "..."
                 set: [ 'found.mardiF.carla' , 'quest.mardiF.done' , 'pnt.freedomSmall.mardiF' , 'op.quest.mardiF' ]  
           lawyer:
