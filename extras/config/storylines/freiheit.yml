@@ -143,15 +143,6 @@ npcs:
       - text:
           en: "Hi. My boss is an AI. My landlord is also an AI."
           de: ""
-  driver:
-    name:
-      en: Driver
-      de: Fahrerin
-    spawn: { x: 6690, y: 2263 }
-    dialogue:
-      - text:
-          en: "Hi"
-          de: ""
   statistician:
     name:
       en: Carla Gaudi
@@ -161,6 +152,16 @@ npcs:
     dialogue:
       - text:
           en: "I am a statistician and I love data :love:!"
+          de: ""
+  engineer:
+    name:
+      en: Nikita Smiljan
+      de: Nikita Smiljan
+    type: engineer
+    spawn: { x: 6484, y: 2282 }
+    dialogue:
+      - text:
+          en: "I am an engineer."
           de: ""
   mardiMathematician:
     name:
@@ -1131,6 +1132,90 @@ quests:
                     en: "We have now uploaded a new version of the dataset with all metadata included. That way the data is reusable."
                     de: "Wir haben jetzt eine neue Version des Datensatzes hochgeladen, in der alle Metadaten enthalten ist. So sind die Daten wiederverwendbar."
                   set: [ 'quest.mardiR.done', 'pnt.freedomSmall.mardiR' ]
+  kgraph1:
+    npc: engineer
+    mood: interrogation
+    available:
+      dialogue:
+        - type: sequence
+          items:
+            - text:
+                en: "Hi. I’m a structural engineer. My simulation software gives me some structure constants as floating points. I suspect these values are actually algebraic numbers."
+                de: ""
+            - text:
+                en: "I would like to implement a guess-and-verification algoritm in my software. I already found out that mathematicians call this an 'interger relation algorithm', but I could not find more."
+                de: ""
+            - text:
+                en: "Can you help me find an expert on that?"
+                de: ""
+              responses:
+                - text:
+                    en: "Accept the quest"
+                    de: "Nimm die Aufgabe an"
+                  thenText:
+                    en: "Thank you! A good point to get help is the MaRDI Help Desk."
+                    de: ""
+                  set: [ 'quest.kgraph1.active' ]
+                - text:
+                    en: "Decline for now"
+                    de: "Vorerst ablehnen"
+                  thenText:
+                    en: "OK. I hope you reconsider."
+                    de: "Ok. Ich hoffe, du überlegst es dir nochmal."  
+    stages:
+      - prompt:
+          en: "Ask for support at the MaRDI Help Desk."
+          de: ""
+        target: mardiHelpDesk
+        dialogues:
+          engineer:
+            - text:
+                en: "They setup the Help Desk at the harbour, where the MaRDI ship docked."
+                de: ""
+          mardiHelpDesk:
+            - type: sequence
+              items:
+                - text:
+                    en: "We don’t provide technical support for research questions, but why don’t you try MaRDI’s Knowledge graph?"
+                    de: ""
+                - text:
+                    en: "Would you like to know more about Knowledge Graphs in general?"
+                    de: ""
+                  responses:
+                    - text:
+                        en: "Yes, please."
+                        de: ""
+                      then: optionKG
+                    - text:
+                        en: "No, thank you."
+                        de: ""
+                      then: optionGo
+            - id: optionKG
+              type: sequence
+              items:
+                - text:
+                    en: "Knowledge graphs are abstract structures that represent human knowledge in a graph form."
+                    de: ""
+                - text:
+                    en: "Nodes are concepts, and a link joining two nodes is a predicate, like 'Agatha Christie was a writer'."
+                    de: ""
+                - text:
+                    en: "This is structured information that an automated system can retrieve. You can access it through the MaRDI portal."
+                    de: ""
+                  then: optionGo  
+            - id: optionGo
+              type: sequence
+              items:
+                - text:
+                    en: "Ok. Let’s  use the MaRDI Knowledge Graph to search your problem 'Finding integer relations'."
+                    de: ""
+                - text:
+                    en: ":clock: 3 minutes later…"
+                    de: ":clock: 3 Minuten später..."
+                - text:
+                    en: "It seems that there are no algorithms yet, but there are many papers that mention this problem. Dr. Muhammad Quartz appears on top of the list of most relevant authors connected to this problem."
+                    de: ""
+                  set: [ 'quest.kgraph1.done', 'pnt.freedomSmall.kgraph1' ]  
 ending:
   dialogue:
     - type: sequence
