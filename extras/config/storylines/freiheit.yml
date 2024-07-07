@@ -161,7 +161,7 @@ npcs:
     spawn: { x: 6484, y: 2282 }
     dialogue:
       - text:
-          en: "I am an engineer."
+          en: "I am a structural engineer."
           de: ""
   mardiMathematician:
     name:
@@ -1114,7 +1114,7 @@ quests:
         dialogues:
           mardiMathematician:
             - text:
-                en: "Thank you for helping  me. You should go and talk to someone at the biology institute."
+                en: "Thank you for helping me. You should go and talk to someone at the biology institute."
                 de: "Danke, dass du mir hellfen willst. Am besten fragst du jemanden vom Institut für Biologie."
           biologist:
             - type: sequence
@@ -1135,6 +1135,7 @@ quests:
   kgraph1:
     npc: engineer
     mood: interrogation
+    required: mardiA
     available:
       dialogue:
         - type: sequence
@@ -1176,7 +1177,7 @@ quests:
             - type: sequence
               items:
                 - text:
-                    en: "We don’t provide technical support for research questions, but why don’t you try MaRDI’s Knowledge graph?"
+                    en: "We don’t provide technical support for research questions, but why don’t you try MaRDI’s Knowledge Graph?"
                     de: ""
                 - text:
                     en: "Would you like to know more about Knowledge Graphs in general?"
@@ -1216,6 +1217,88 @@ quests:
                     en: "It seems that there are no algorithms yet, but there are many papers that mention this problem. Dr. Muhammad Quartz appears on top of the list of most relevant authors connected to this problem."
                     de: ""
                   set: [ 'quest.kgraph1.done', 'pnt.freedomSmall.kgraph1' ]  
+  kgraph2:
+    npc: engineer
+    mood: interrogation
+    required: kgraph1
+    available:
+      dialogue:
+        - type: sequence
+          items:
+            - text:
+                en: "I would like to use an 'interger relation algorithm' with my simulation software. I got help searching the MaRDI Knowedge graph for this problem."
+                de: ""
+            - text:
+                en: "Would you like to know more about Knowledge Graphs in general?"
+                de: ""
+              responses:
+                - text:
+                    en: "Yes, please."
+                    de: ""
+                  then: optionKG
+                - text:
+                    en: "No, thank you."
+                    de: ""
+                  then: optionGo
+            - id: optionKG
+              type: sequence
+              items:
+                - text:
+                    en: "Knowledge graphs are abstract structures that represent human knowledge in a graph form."
+                    de: ""
+                - text:
+                    en: "Nodes are concepts, and a link joining two nodes is a predicate, like 'Agatha Christie was a writer'."
+                    de: ""
+                - text:
+                    en: "This is structured information that an automated system can retrieve. You can access it through the MaRDI portal."
+                    de: ""
+                  then: optionGo  
+            - id: optionGo
+              type: sequence
+              items:
+                - text:
+                    en: "So, the Knowledge Graph search did not reveal any algorithms. However, I got a list of relevant authors for the topic. Dr. Muhammad Quartz is on top of that list."
+                    de: ""
+                - text:
+                    en: "Dr. Quartz has written a paper on an algorithm he developed. Can you find him at this conference and ask about his algorithm?"
+                    de: ""
+                  responses:
+                    - text:
+                        en: "Accept the quest"
+                        de: "Nimm die Aufgabe an."
+                      thenText:
+                        en: "Thank you! I want to implement an algorithm like that in my simulation software."
+                        de: ""
+                      set: [ 'quest.kgraph2.active' ]
+                    - text:
+                        en: "Decline for now"
+                        de: "Vorerst ablehnen."
+                      thenText:
+                        en: "OK. I hope you reconsider."
+                        de: "Ok. Ich hoffe, du überlegst es dir nochmal."
+    stages:
+      - prompt:
+          en: "Talk to Muhammad Quartz."
+          de: ""
+        target: lawyer
+        dialogues:
+          engineer:
+            - text:
+                en: "Thank you for helping me. You should go and talk to Muhammad Quartz."
+                de: ""
+          lawyer:
+            - type: sequence
+              items:
+                - text:
+                    en: "Oh yes, I know the problem of finding integer relations well, I have myself implemented an algorithm."
+                    de: ""
+                - text:
+                    en: "I will submit my code repository to the MaRDI Knowledge Graph, so your friend, the engineer, can use it in his simulation software."
+                    de: ""
+                - text:
+                    en: "I would recommend my algorithm. It is better than others that exist to solve this problem."
+                    de: ""
+                  set: [ 'quest.kgraph2.done', 'pnt.freedomSmall.kgraph2' ]
 ending:
   dialogue:
     - type: sequence
