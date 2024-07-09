@@ -64,7 +64,7 @@ npcs:
               en: "I am a mathematician, specializing in mathematical neurosciene. I am part of this cool, interdisciplinary collaboration."
               de: ""
           - text:
-              en: "I am responsible for SUPERVISION, CONCEPTUALIZATION, and PROJECT ADMINISTRATION. I found a colleage who is now responsible for FUNDING ACQUISITION."
+              en: "I am responsible for SUPERVISION, CONCEPTUALIZATION, and PROJECT ADMINISTRATION."
               de: ""          
       - cond: 'quest.credit3.done'
         type: sequence
@@ -73,7 +73,7 @@ npcs:
               en: "I am a mathematician, specializing in mathematical neurosciene. I am part of this cool, interdisciplinary collaboration."
               de: ""
           - text:
-              en: "I am responsible for SUPERVISION, CONCEPTUALIZATION, and PROJECT ADMINISTRATION. I found a colleage who is now responsible for FUNDING ACQUISITION."
+              en: "I am responsible for SUPERVISION, CONCEPTUALIZATION, and PROJECT ADMINISTRATION."
               de: ""    
           - text:
               en: "My PhD student Maxi is focussing on her role of WRITING - ORIGINAL DRAFT at the moment, and I will be responsible for WRITING - REVIEW&EDITING later."
@@ -386,7 +386,7 @@ npcs:
               en: "I collaborate in this cool, interdisciplinary project on neuroscience."
               de: ""
           - text:
-              en: "I do computational combinatorics. In this project, I am responsible for SOFTWARE."
+              en: "I do computational combinatorics. In this project, I am responsible for SOFTWARE and FUNDING ACQUISITION."
               de: ""
   robot:
     name:
@@ -546,7 +546,7 @@ quests:
                     en: "Yes, the talk yesterday on cognitive neuroscience was very inspring. It was given by Mike Backmill. I think he’s more on the experimental side, and he could help with modeling. "
                     de: ""
                 - text:
-                    en: "He and I could be responsible for CONCEPTUALIZATION. Additionally he could be the lead for DATA CURATION and VALIDATION ."
+                    en: "He and I could be responsible for CONCEPTUALIZATION. Additionally, he could be the lead for DATA CURATION and VALIDATION ."
                     de: ""
                 - text:
                     en: "Mike brought his dog to the conference. You might find him in the park."
@@ -627,7 +627,7 @@ quests:
                     en: "Accept the quest"
                     de: "Nimm die Aufgabe an"
                   thenText:
-                    en: "Thank you! Franciszek likes good coffe. You might find him at the coffee stand."
+                    en: "Thank you! Franciszek likes good coffee. You might find him at the coffee stand."
                     de: ""
                   set: [ 'quest.credit3.active' ]
                 - text:
@@ -652,10 +652,10 @@ quests:
                     en: "Yes, I am happy to collaborate in this project. I can be responsible for SOFTWARE and prepare some scripts to calculate the invariants of the graph. "
                     de: ""
                 - text:
-                    en: "Someone else will need to be responsible for WRITING - ORIGINAL DRAFT and VISUALIZATION, though."
+                    en: "I can also be responsible for FUNDING ACQUISITION, if needed. I have had to apply many times to calls for funding, and I have automated parts of the process and make use of A.I. for other parts!"
                     de: ""
                 - text:
-                    en: "Thank you for inviting me to this collaboration. I will join the team at the blackboard."
+                    en: "Someone else will need to be responsible for WRITING - ORIGINAL DRAFT and VISUALIZATION, though. Thank you for inviting me to this collaboration. I will join the team at the blackboard."
                     de: ""
                   set: [ 'quest.credit3.done', 'pnt.freedomSmall.credit3', 'quest.credit3.local' ]      
   mardiF:
@@ -1144,7 +1144,7 @@ quests:
                 en: "Hi. I’m a structural engineer. My simulation software gives me some structure constants as floating points. I suspect these values are actually algebraic numbers."
                 de: ""
             - text:
-                en: "I would like to implement a guess-and-verification algoritm in my software. I already found out that mathematicians call this an 'interger relation algorithm', but I could not find more."
+                en: "I would like to implement a guess-and-verification algorithm in my software. I already found out that mathematicians call this an 'integer relation algorithm', but I could not find more."
                 de: ""
             - text:
                 en: "Can you help me find an expert on that?"
@@ -1226,7 +1226,7 @@ quests:
         - type: sequence
           items:
             - text:
-                en: "I would like to use an 'interger relation algorithm' with my simulation software. I got help searching the MaRDI Knowedge graph for this problem."
+                en: "I would like to use an 'integer relation algorithm' with my simulation software. I got help searching the MaRDI Knowedge graph for this problem."
                 de: ""
             - text:
                 en: "Would you like to know more about Knowledge Graphs in general?"
