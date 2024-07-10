@@ -126,8 +126,8 @@ npcs:
           de: ""
   barista:
     name:
-      en: Barista
-      de: Barista
+      en: Paula Rey
+      de: Paula Rey
     spawn: { x: 4138, y: 3680 }
     dialogue:
       - text:
@@ -304,15 +304,15 @@ npcs:
       - text:
           en: "Woof!"
           de: "Wuff!"
-  citizenInvolved2:
+  AlgoDB:
     name:
-      en: "Neighbor"
-      de: "Nachbar"
+      en: "Francois V. Belle"
+      de: "Francois V. Belle"
     type: citizenHoodie
     spawn: { x: 4485, y: 1841 }
     dialogue:
       - text:
-          en: "What's math got to do with it...?"
+          en: "I am an applied mathematician, working in numerical analysis."
           de: ""
   lawyer:
     name:
@@ -1135,7 +1135,6 @@ quests:
   kgraph1:
     npc: engineer
     mood: interrogation
-    required: mardiA
     available:
       dialogue:
         - type: sequence
@@ -1208,13 +1207,13 @@ quests:
               type: sequence
               items:
                 - text:
-                    en: "Ok. Let’s  use the MaRDI Knowledge Graph to search your problem 'Finding integer relations'."
+                    en: "Ok. Let’s use the MaRDI Knowledge Graph to search your problem 'Finding integer relations'."
                     de: ""
                 - text:
                     en: ":clock: 3 minutes later…"
                     de: ":clock: 3 Minuten später..."
                 - text:
-                    en: "It seems that there are no algorithms yet, but there are many papers that mention this problem. Dr. Muhammad Quartz appears on top of the list of most relevant authors connected to this problem."
+                    en: "It seems that there are a few algorithms, that could be helpful for your friend, the engineer. Here is a list of authors."
                     de: ""
                   set: [ 'quest.kgraph1.done', 'pnt.freedomSmall.kgraph1' ]  
   kgraph2:
@@ -1226,7 +1225,7 @@ quests:
         - type: sequence
           items:
             - text:
-                en: "I would like to use an 'integer relation algorithm' with my simulation software. I got help searching the MaRDI Knowedge graph for this problem."
+                en: "I want to use an 'integer relation algorithm' with my simulation software. I got help searching the MaRDI Knowedge graph and received a list of authors."
                 de: ""
             - text:
                 en: "Would you like to know more about Knowledge Graphs in general?"
@@ -1257,17 +1256,17 @@ quests:
               type: sequence
               items:
                 - text:
-                    en: "So, the Knowledge Graph search did not reveal any algorithms. However, I got a list of relevant authors for the topic. Dr. Muhammad Quartz is on top of that list."
+                    en: "How can I know, which of the algorithms of the list I received is the best one in my case?  I can’t possibly visit all the experts in integer relations worldwide!"
                     de: ""
                 - text:
-                    en: "Dr. Quartz has written a paper on an algorithm he developed. Can you find him at this conference and ask about his algorithm?"
+                    en: "Could you get me some help on reviewing the list of authors and their algorithms?"
                     de: ""
                   responses:
                     - text:
                         en: "Accept the quest"
                         de: "Nimm die Aufgabe an."
                       thenText:
-                        en: "Thank you! I want to implement an algorithm like that in my simulation software."
+                        en: "Thank you! I got help from the MaRDI Help Desk before. If you don't know where to start, go there."
                         de: ""
                       set: [ 'quest.kgraph2.active' ]
                     - text:
@@ -1277,28 +1276,84 @@ quests:
                         en: "OK. I hope you reconsider."
                         de: "Ok. Ich hoffe, du überlegst es dir nochmal."
     stages:
-      - prompt:
-          en: "Talk to Muhammad Quartz."
+      - cond: 'found.kgraph2.algo'
+        prompt:
+          en: "Go back to the engineer."
           de: ""
-        target: lawyer
+        target: engineer
         dialogues:
           engineer:
-            - text:
-                en: "Thank you for helping me. You should go and talk to Muhammad Quartz."
-                de: ""
-          lawyer:
             - type: sequence
               items:
                 - text:
-                    en: "Oh yes, I know the problem of finding integer relations well, I have myself implemented an algorithm."
+                    en: "Wow, this is fantastic. I found all the algorithms that solve my problem, with references to the original papers and links to the code..."
                     de: ""
                 - text:
-                    en: "I will submit my code repository to the MaRDI Knowledge Graph, so your friend, the engineer, can use it in his simulation software."
+                    en: "Furthermore, I had benchmark comparisons to find out which one fits my particular use case best, and even I could plug it into my software which is written in a completely different language!"
                     de: ""
                 - text:
-                    en: "I would recommend my algorithm. It is better than others that exist to solve this problem."
+                    en: "Thank you so much! I wish I could find all my mathematical tools, through the MaRDI Portal!"
                     de: ""
                   set: [ 'quest.kgraph2.done', 'pnt.freedomSmall.kgraph2' ]
+      - cond: '^found.kgraph2.algo'
+        prompt:
+          en: "Find help to review the algorithms."
+          de: ""
+        dialogues:
+          engineer:
+            - text:
+                en: "Thank you for helping me. Have you asked the MaRDI Help Desk, yet?"
+                de: ""
+          mardiHelpDesk:
+            - type: sequence
+              items:
+                - text:
+                    en: "There is a team at MaRDI working on MathAlgoDB, a database and knowledge graph of numerical algorithms. Some of them participate in this conference."
+                    de: ""
+                - text:
+                    en: "Francois and his partner are both Mardians. They brought their baby to the conference."
+                    de: ""
+          AlgoDB:
+            - type: sequence
+              items:
+                - text:
+                    en: "I am part of the MathAlgoDB team. We curate the MathAlgoDB project."
+                    de: ""
+                - text:
+                    en: "Besides collecting numerical algorithms and linking them in the Knowledge graph, we develop benchmarks to compare different algorithms."
+                    de: ""
+                - text:
+                    en: "The results tell you, which one is the most accurate, which one consumes more memory, which one is the fastest… So the engineer can choose for himself, which algorithm fits him best."
+                    de: ""
+                  responses:
+                    - text:
+                        en: "Which programming language do you propose in your database?"
+                        de: ""
+                      then: optionLang
+                    - text:
+                        en: "This sounds great, I will go tell the engineer."
+                        de: ""
+                      then: optionDone
+            - id: optionLang
+              type: sequence
+              items:
+                - text:
+                    en: "We welcome all programming languages. Actually, we develop and propose all authors to implement interoperability interfaces."
+                    de: ""
+                - text:
+                    en: "They are like a generic binding for any programming language. This way, you don’t have to worry about what language each author used, you can plug it into your software with standard API calls."
+                    de: ""
+                - text:
+                    en: "The user - in this case, your friend, the engineer - does not need to be worried about having to deal with some language he doesn’t know."
+                    de: ""
+                  then: optionDone  
+            - id: optionDone
+              type: sequence
+              items:
+                - text:
+                    en: "I am sure this will be helpful for your friend."
+                    de: ""
+                  set: [ 'found.kgraph2.algo']
 ending:
   dialogue:
     - type: sequence
