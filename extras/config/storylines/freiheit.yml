@@ -83,8 +83,8 @@ npcs:
           de: ""              
   videoBlogger:
     name:
-      en: Videoblogger
-      de: Videoblogger
+      en: Dusty Grant
+      de: Dusty Grant
     spawn: { x: 2458, y: 1255 }
     dialogue:
       - text:
@@ -132,16 +132,6 @@ npcs:
     dialogue:
       - text:
           en: "A mathematician is a machine for turning coffee into theorems."
-          de: ""
-  windowCleaner:
-    name:
-      en: Window Cleaner
-      de: Fensterputzerin
-    type: windowWasher
-    spawn: { x: 272, y: 3234 }
-    dialogue:
-      - text:
-          en: "Hi. My boss is an AI. My landlord is also an AI."
           de: ""
   statistician:
     name:
@@ -311,9 +301,14 @@ npcs:
     type: citizenHoodie
     spawn: { x: 4485, y: 1841 }
     dialogue:
-      - text:
-          en: "I am an applied mathematician, working in numerical analysis."
-          de: ""
+      - type: sequence
+        items:
+          - text:
+              en: "I am an applied mathematician, working in numerical analysis."
+              de: ""
+          - text:
+              en: "I am part of the team at MaRDI working on MathAlgoDB, a database and knowledge graph of numerical algorithms."
+              de: ""
   lawyer:
     name:
       en: "Muhammad Quartz"
@@ -1365,9 +1360,57 @@ ending:
             - text: 
                 en: 'Thank you for playing.'
                 de: ""
-        - cond: 'COUNT("pnt.") >= 1'
+        - cond: 'COUNT("pnt.") = 0'
           text:
-            en: "You solved at least one quest."
+            en: "You didn't solve any quests."
+            de: ""
+        - cond: 'COUNT("pnt.") = 0'
+          text:
+            en: "Did you have some good conversations instead?"
+            de: ""
+        - cond: 'COUNT("pnt.") = 0'
+          text:
+            en: "Play again and talk to the people with a speech bubble."
+            de: ""
+        - cond: 'COUNT("pnt.") = 1'
+          text:
+            en: "You solved one quest. Congratulations!"
+            de: ""
+        - cond: 'COUNT("pnt.") = 1'
+          text:
+            en: "This was the topic of the quest you solved:"
+            de: ""
+        - cond: 'COUNT("pnt.") > 1 & COUNT("pnt.") <= 3'
+          text:
+            en: "You solved more than one quest. Congratulations!"
+            de: ""
+        - cond: 'COUNT("pnt.") > 3 & COUNT("pnt.") <= 6'
+          text:
+            en: "You solved more than three quests. Congratulations!"
+            de: ""
+        - cond: 'COUNT("pnt.") > 6 & COUNT("pnt.") <= 8'
+          text:
+            en: "You solved more than six quests. Congratulations!"
+            de: ""
+        - cond: 'COUNT("pnt.") = 9'
+          text:
+            en: "You solved all nine quests. Congratulations!"
+            de: ""
+        - cond: 'COUNT("pnt.") > 1'
+          text:
+            en: "These were the topics of the quests you solved:"
+            de: ""
+        - cond: 'quest.mardiF.done | quest.mardiA.done | quest.mardiI.done | quest.mardiR.done'
+          text:
+            en: "The FAIR principles - Findable, Accessible, Interoperable, and Re-usable."
+            de: ""
+        - cond: 'quest.credit1.done'
+          text:
+            en: "The Contributor Roles Taxonomy system (short CRediT). This is a standard classification of 14 roles for a researcher in a project. "
+            de: ""
+        - cond: 'quest.kgraph1.done'
+          text:
+            en: "Knowledge Graph - a knowledge base organized in the form of a mathematical graph."
             de: ""
 
 
