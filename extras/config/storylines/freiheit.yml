@@ -1349,6 +1349,241 @@ quests:
                     en: "I am sure this will be helpful for your friend."
                     de: ""
                   set: [ 'found.kgraph2.algo']
+  sharing:
+    npc: videoBlogger
+    mood: interrogation
+    available:
+      dialogue:
+        - type: sequence
+          items:
+            - text:
+                en: "I want to create a video about why researchers should share their research data."
+                de: ""
+            - text:
+                en: "At the moment, I am still busy editing the Data Date video interview for the upcoming MaRDI newsletter 'Math and Data Quarterly', but I really need to talk to people here at the conference, too."
+                de: ""
+            - text:
+                en: "Can you help me collect a few statements from the participants at this conference about sharing research data?"
+                de: ""
+              responses:
+                - text:
+                    en: "Accept the quest"
+                    de: "Nimm die Aufgabe an."
+                  thenText:
+                    en: "Thank you! This will help me a lot."
+                    de: ""
+                  set: [ 'quest.sharing.active' ]
+                - text:
+                    en: "Decline for now"
+                    de: "Vorerst ablehnen."
+                  thenText:
+                    en: "OK. I hope you reconsider."
+                    de: "Ok. Ich hoffe, du überlegst es dir nochmal."
+    stages:
+      - prompt:
+          en: "Ask participants about sharing research data."
+          de: ""
+        counter:
+          expression: 'COUNT("op.favor")'
+          max: 2
+          icon: happy
+        dialogues:
+          videoBlogger:
+            - text:
+                en: "Thank you for helping me. You should go and talk to the people attending the conference."
+                de: ""
+          journalist:
+            - text:
+                en: "When I write an article for a newspaper, I like to read several scietific publications on the subject and then I will boil it down quite a bit."
+                de: ""
+          gameDev:
+            - text:
+                en: "Sorry, I cannot talk to you. I need to prepare my presentation on cognitive neuroscience for the conference."
+                de: ""
+          gameDev2:
+            - text:
+                en: "Sorry, I cannot talk to you. I need to analyze this pile of data."
+                de: ""
+          mayor:
+            - text:
+                en: "I don't have any data to share."
+                de: ""
+          artist:
+            - text:
+                en: "I'm not sure. You can talk to my advisor Flora Notte about it. She is just a few steps away."
+                de: ""
+          citizenLila:
+            - text:
+                en: "Your work exists in the past, you exist in the present, and your shared data exists in the future."
+                de: ""
+          lawyer:
+            - cond: 'COUNT("op.favor") = 1 & ^op.favor.lawyer' 
+              type: sequence
+              items:
+                - text:
+                    en: "Yes, it is a good thing to share your research data. You can use your own data after several years, even if your hard drive broke."
+                    de: ""
+                  set: [ 'op.favor.lawyer' ]
+                - text:
+                    en: "It will be interesting to see the final video on sharing research data, when it is done."
+                    de: ""
+                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+            - cond: 'COUNT("op.favor") = 0'
+              text:
+                en: "Yes, it is a good thing to share your research data. You can use your own data after several years, even if your hard drive broke."
+                de: ""
+              set: [ 'op.favor.lawyer' ]
+            - cond: 'COUNT("op.favor") = 1 & op.favor.lawyer' 
+              text:
+                en: "You have already talked to me. Have you been to the MaRDI ship, yet?"
+                de: ""
+          citizenAqua:
+            - cond: 'COUNT("op.favor") = 1 & ^op.favor.citizenAqua' 
+              type: sequence
+              items:
+                - text:
+                    en: "The coolest thing to do with your research data will be thought of by someone else. So it is great to share your data."
+                    de: ""
+                  set: [ 'op.favor.citizenAqua' ]
+                - text:
+                    en: "It will be interesting to see the final video on sharing research data, when it is done."
+                    de: ""
+                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+            - cond: 'COUNT("op.favor") = 0'
+              text:
+                en: "The coolest thing to do with your research data will be thought of by someone else. So it is great to share your data."
+                de: ""
+              set: [ 'op.favor.citizenAqua' ]
+            - cond: 'COUNT("op.favor") = 1 & op.favor.citizenAqua' 
+              text:
+                en: "You have already talked to me. Have you been to the MaRDI ship, yet?"
+                de: ""
+          citizenComp:
+            - cond: 'COUNT("op.favor") = 1 & ^op.favor.citizenAqua' 
+              type: sequence
+              items:
+                - text:
+                    en: "Sometimes, it is a requirement from the funder to share your research data."
+                    de: ""
+                  set: [ 'op.favor.citizenComp' ]
+                - text:
+                    en: "It will be interesting to see the final video on sharing research data, when it is done."
+                    de: ""
+                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+            - cond: 'COUNT("op.favor") = 0'
+              text:
+                en: "Sometimes, it is a requirement from the funder to share your research data."
+                de: ""
+              set: [ 'op.favor.Comp' ]
+            - cond: 'COUNT("op.favor") = 1 & op.favor.Comp' 
+              text:
+                en: "You have already talked to me. Have you been to the MaRDI ship, yet?"
+                de: ""
+          citizenComp2:
+            - cond: 'COUNT("op.favor") = 1 & ^op.favor.citizenComp' 
+              type: sequence
+              items:
+                - text:
+                    en: "Sometimes, it is a requirement from the funder to share your research data."
+                    de: ""
+                  set: [ 'op.favor.citizenComp' ]
+                - text:
+                    en: "It will be interesting to see the final video on sharing research data, when it is done."
+                    de: ""
+                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+            - cond: 'COUNT("op.favor") = 0'
+              text:
+                en: "Sometimes, it is a requirement from the funder to share your research data."
+                de: ""
+              set: [ 'op.favor.Comp' ]
+            - cond: 'COUNT("op.favor") = 1 & op.favor.Comp' 
+              text:
+                en: "You have already talked to me. Have you been to the MaRDI ship, yet?"
+                de: ""
+          AlgoDB:
+            - cond: 'COUNT("op.favor") = 1 & ^op.favor.AlgoDB' 
+              type: sequence
+              items:
+                - text:
+                    en: "Sharing your research data allows independent verification of your results."
+                    de: ""
+                  set: [ 'op.favor.AlgoDB' ]
+                - text:
+                    en: "It will be interesting to see the final video on sharing research data, when it is done."
+                    de: ""
+                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+            - cond: 'COUNT("op.favor") = 0'
+              text:
+                en: "Sharing your research data allows independent verification of your results."
+                de: ""
+              set: [ 'op.favor.AlgoDB' ]
+            - cond: 'COUNT("op.favor") = 1 & op.favor.AlgoDB' 
+              text:
+                en: "You have already talked to me. Have you been to the MaRDI ship, yet?"
+                de: ""
+          mardiMathematician:
+            - cond: 'COUNT("op.favor") = 1 & ^op.favor.math' 
+              type: sequence
+              items:
+                - text:
+                    en: "Sharing your research data can improve your reputation as a researcher. Others might cite it in their own research, which will help to increase your impact within your field and beyond it."
+                    de: ""
+                  set: [ 'op.favor.math' ]
+                - text:
+                    en: "It will be interesting to see the final video on sharing research data, when it is done."
+                    de: ""
+                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+            - cond: 'COUNT("op.favor") = 0'
+              text:
+                en: "Sharing your research data can improve your reputation as a researcher. Others might cite it in their own research, which will help to increase your impact within your field and beyond it."
+                de: ""
+              set: [ 'op.favor.math' ]
+            - cond: 'COUNT("op.favor") = 1 & op.favor.math' 
+              text:
+                en: "You have already talked to me."
+                de: ""
+          mardiHelpDesk:
+            - cond: 'COUNT("op.favor") = 1 & ^op.favor.help' 
+              type: sequence
+              items:
+                - text:
+                    en: "Data sharing encourages more connection and collaboration between researchers, which can result in important new findings within the field."
+                    de: ""
+                  set: [ 'op.favor.help' ]
+                - text:
+                    en: "It will be interesting to see the final video on sharing research data, when it is done."
+                    de: ""
+                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+            - cond: 'COUNT("op.favor") = 0'
+              text:
+                en: "Data sharing encourages more connection and collaboration between researchers, which can result in important new findings within the field."
+                de: ""
+              set: [ 'op.favor.help' ]
+            - cond: 'COUNT("op.favor") = 1 & op.favor.help' 
+              text:
+                en: "You have already talked to me."
+                de: ""
+          statistician:
+            - cond: 'COUNT("op.favor") = 1 & ^op.favor.statistician' 
+              type: sequence
+              items:
+                - text:
+                    en: "Data sharing allows researchers to build upon the work of others rather than repeat already existing research. Sharing data also enables researchers to perform meta-analyses on the current research topic."
+                    de: ""
+                  set: [ 'op.favor.statistician' ]
+                - text:
+                    en: "It will be interesting to see the final video on sharing research data, when it is done."
+                    de: ""
+                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+            - cond: 'COUNT("op.favor") = 0'
+              text:
+                en: "Data sharing allows researchers to build upon the work of others rather than repeat already existing research. Sharing data also enables researchers to perform meta-analyses on the current research topic."
+                de: ""
+              set: [ 'op.favor.statistician' ]
+            - cond: 'COUNT("op.favor") = 1 & op.favor.statistician' 
+              text:
+                en: "You have already talked to me."
+                de: ""
 ending:
   dialogue:
     - type: sequence
@@ -1388,13 +1623,13 @@ ending:
           text:
             en: "You solved more than three quests. Congratulations!"
             de: ""
-        - cond: 'COUNT("pnt.") > 6 & COUNT("pnt.") <= 8'
+        - cond: 'COUNT("pnt.") > 6 & COUNT("pnt.") <= 9'
           text:
             en: "You solved more than six quests. Congratulations!"
             de: ""
-        - cond: 'COUNT("pnt.") = 9'
+        - cond: 'COUNT("pnt.") = 10'
           text:
-            en: "You solved all nine quests. Congratulations!"
+            en: "You solved all ten quests. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") > 1'
           text:
@@ -1410,7 +1645,11 @@ ending:
             de: ""
         - cond: 'quest.kgraph1.done'
           text:
-            en: "Knowledge Graph - a knowledge base organized in the form of a mathematical graph."
+            en: "Knowledge Graph - a knowledge base in the form of a mathematical graph."
+            de: ""
+        - cond: 'quest.sharing.done'
+          text:
+            en: "The importance of sharing research data."
             de: ""
 
 
