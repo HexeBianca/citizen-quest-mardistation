@@ -160,7 +160,7 @@ npcs:
     type: citizenPunk
     spawn: { x: 6300, y: 3334 }
     dialogue:
-      - type: cycle
+      - type: sequence
         items:
           - text:
               en: "I come from the realm of MaRDI."
@@ -365,7 +365,7 @@ npcs:
     cond: '^(quest.credit3.done & (^quest.credit3.active | quest.credit3.local))'   
     dialogue:
       - text:
-          en: "Hi. I do computational combinatorics."
+          en: "Hi. I do computational combinatorics. I also like soccer."
           de: ""
   citizenComp2:
     name:
@@ -715,11 +715,7 @@ quests:
           librarian:
             - text:
                 en: "I :love: the Black Forest, especially in carnival season!"
-                de: "..."
-          mardiHelpDesk:
-            - text:
-                en: "MaRDI is creating a huge Knowledge Graph to collect research data in mathematics and make it available through a single web portal."
-                de: "..."                  
+                de: "..."              
       - cond: '^found.mardiF.person'
         prompt:
           en: "Find the work by Dr. Quartz from the Al-Jabr Institute."
@@ -727,11 +723,11 @@ quests:
         dialogues:
           statistician:
             - text:
-                en: "He is participating in this conference, so you should be able to find him on campus."
+                en: "Dr. Quartz is participating in this conference, so you should be able to find him on campus."
                 de: ""
           robot:
             - text:
-                en: "I did a quick online search for you. He published a paper on implicitization and elimination techniques. However, the corresponding code is not included."
+                en: "I did a quick online search for you. Dr. Quartz published a paper on implicitization and elimination techniques. However, the corresponding code is not included."
                 de: "..."
               set: [ 'found.mardiF.person' ]
           barista:
@@ -753,7 +749,7 @@ quests:
                 de: "..."
           citizenAqua:
             - text:
-                en: "He is participating in this conference. I saw him a few minutes ago, he cannot be far."
+                en: "Dr. Quartz is participating in this conference. I saw him a few minutes ago, he cannot be far."
                 de: ""
           artist:
             - text:
@@ -761,11 +757,11 @@ quests:
                 de: ""
           journalist:
             - text:
-                en: "I interviewd him about his work on implicitization and elimination techniques. He should be around."
+                en: "I interviewd Dr. Quartz about his work on implicitization and elimination techniques. He should be around."
                 de: ""
           biologist:
             - text:
-                en: "I met him yesterday here at the conference. He is wearing glasses and a suit."
+                en: "I met Dr. Quartz yesterday here at the conference. He is wearing glasses and a suit."
                 de: ""
           citizenComp:
             - text:
@@ -773,11 +769,11 @@ quests:
                 de: ""
           citizenLila:
             - text:
-                en: "He came to my yoga class, yesterday. I have not seen him today, though. He is not in the park at the moment."
+                en: "Dr. Quartz came to my yoga class, yesterday. I have not seen him today, though. He is not in the park at the moment."
                 de: ""
           gameDev:
             - text:
-                en: "I met him at this conference. However, he is afraid of dogs, so he is probably on the other side of the campus."
+                en: "I met Dr. Quartz at this conference. However, he is afraid of dogs, so he is probably on the other side of the campus."
                 de: ""
           mardiMathematician:
             - type: sequence
@@ -1064,7 +1060,7 @@ quests:
         - type: sequence
           items:
             - text:
-                en: "We developed a tool, that let's you upload a photo of a petrified dinosaur footprint and gives an analysis in real time. We still need to test it though."
+                en: "We developed a tool, that lets you upload a photo of a petrified dinosaur footprint and gives an analysis in real time. We still need to test it, though."
                 de: "Wir haben eine Software entickelt, mit der kannst du ein Foto eines versteinerten Dinosaurier-Fußabdrucks hochladen und in Echtzeit analysieren lassen. Wir müssen es aber noch testen."
             - text:
                 en: "For the testing, we got pictures from the university, showing real dinosaur footprints. However, the locations and dimensions are missing. Without these metadata, we can’t reuse the pictures."
@@ -1205,7 +1201,7 @@ quests:
         - type: sequence
           items:
             - text:
-                en: "I want to use an 'integer relation algorithm' with my simulation software. I got help searching the MaRDI Knowedge graph and received a list of authors."
+                en: "I want to use an 'integer relation algorithm' with my simulation software. I got help searching the MaRDI Knowledge graph and received a list of authors."
                 de: ""
             - text:
                 en: "Would you like to know more about Knowledge Graphs in general?"
@@ -1236,7 +1232,7 @@ quests:
               type: sequence
               items:
                 - text:
-                    en: "How can I know, which of the algorithms of the list I received is the best one in my case?  I can’t possibly visit all the experts in integer relations worldwide!"
+                    en: "How can I know which of the algorithms of the list I received is the best one in my case? I can’t possibly visit all the experts in integer relations worldwide!"
                     de: ""
                 - text:
                     en: "Could you get me some help on reviewing the list of authors and their algorithms?"
@@ -1246,7 +1242,7 @@ quests:
                         en: "Accept the quest"
                         de: "Nimm die Aufgabe an."
                       thenText:
-                        en: "Thank you! I got help from the MaRDI Help Desk before. If you don't know where to start, go there."
+                        en: "Thank you! The MaRDI Help Desk told me to ask Francois V. Belle. He is also part of the MaRDI team."
                         de: ""
                       set: [ 'quest.kgraph2.active' ]
                     - text:
@@ -1272,13 +1268,14 @@ quests:
                     en: "Furthermore, I had benchmark comparisons to find out which one fits my particular use case best, and even I could plug it into my software which is written in a completely different language!"
                     de: ""
                 - text:
-                    en: "Thank you so much! I wish I could find all my mathematical tools, through the MaRDI Portal!"
+                    en: "Thank you so much! I wish I could find all my mathematical tools through the MaRDI Portal!"
                     de: ""
                   set: [ 'quest.kgraph2.done', 'pnt.freedomSmall.kgraph2' ]
       - cond: '^found.kgraph2.algo'
         prompt:
           en: "Find help to review the algorithms."
           de: ""
+        target: AlgoDB
         dialogues:
           engineer:
             - text:
@@ -1303,7 +1300,7 @@ quests:
                     en: "Besides collecting numerical algorithms and linking them in the Knowledge graph, we develop benchmarks to compare different algorithms."
                     de: ""
                 - text:
-                    en: "The results tell you, which one is the most accurate, which one consumes more memory, which one is the fastest… So the engineer can choose for himself, which algorithm fits him best."
+                    en: "The results tell you, which one is the most accurate, which one consumes more memory, which one is the fastest… So your friend, the engineer, can choose for himself, which algorithm fits him best."
                     de: ""
                   responses:
                     - text:
@@ -1379,7 +1376,7 @@ quests:
                 de: ""
           journalist:
             - text:
-                en: "When I write an article for a newspaper, I like to read several scietific publications on the subject and then I will boil it down quite a bit."
+                en: "As a journalist, when I write an article for a newspaper, I like to read several scientific publications on the subject and then I will boil it down quite a bit."
                 de: ""
           gameDev:
             - text:
@@ -1818,6 +1815,10 @@ quests:
             - text:
                 en: "The MaRDI ship is right over there. The peopple are friendly and like good coffee."
                 de: ""
+          mardiMathematician:
+            - text:
+                en: "I will be with you in a minute. Meanwhile, please ask my colleage at the MaRDI Help Desk."
+                de: ""
           mardiHelpDesk:
             - type: sequence
               items:
@@ -1831,7 +1832,7 @@ quests:
                     en: "In this case, it would suit to have a catalog of a broad class of manifolds classified by their invariants or by some characteristics."
                     de: ""
                 - text:
-                    en: "I need to help a group of researchers now with their Research Data Management Plan, but my colleage can tell you more about such catalogs."
+                    en: "Sorry, I need to help a group of researchers now with their Research Data Management Plan, but my colleage can tell you more about such catalogs."
                     de: ""
                   set: [ 'found.mardi2.help' ]
 ending:
