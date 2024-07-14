@@ -1,6 +1,4 @@
-# Citizen Quest: Freiheit
-
-A game about Freedom.
+# MaRDI Station - Citizen Quest
 
 Based on the interactive exhibit [Citizen Quest](https://github.com/IMAGINARY/citizen-quest),
 developed by [Imaginary](https://about.imaginary.org/) for [Futurium](https://futurium.de/de/citizen-quest).
