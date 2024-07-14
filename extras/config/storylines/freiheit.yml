@@ -353,9 +353,29 @@ npcs:
     type: citizenLila
     spawn: { x: 4100, y: 2460 }  
     dialogue:
-      - text:
-          en: "I am a yoga instructor."
-          de: ""
+      - type: random
+        items:
+          - text:
+              en: "I am a yoga instructor. Geometry is all around us — it is inherent in nature and mirrored in the human body."
+              de: "..."
+          - text:
+              en: "I am a yoga instructor. Yoga is tied to the geometric balance within the body, manifesting the beauty of symmetry."
+              de: "..."
+          - text:
+              en: "I am a yoga instructor. My favorite pose is Trikonasana - the Triangle Pose."
+              de: "..."
+          - text:
+              en: "I am a yoga instructor. Many yoga postures demonstrate bilateral symmetry, reflecting the left-right symmetry of the human body."
+              de: "..."
+          - text:
+              en: "I am a yoga instructor. In yoga, we use our bodies as a form of a 'protractor'."
+              de: "..."
+          - text:
+              en: "I am a yoga instructor. Some people learn poses by assigning body parts to 'points' in space, similar to a coordinate system."
+              de: "..."
+          - text:
+              en: "I am a yoga instructor. The Golden Ratio, a concept in mathematics, also finds resonance in yoga's world."
+              de: "..."
   citizenComp:
     name:
       en: Franciszek Snowpinski 
