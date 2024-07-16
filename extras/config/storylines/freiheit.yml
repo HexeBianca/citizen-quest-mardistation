@@ -1351,7 +1351,7 @@ quests:
                     en: "I am sure this will be helpful for your friend."
                     de: ""
                   set: [ 'found.kgraph2.algo']
-  sharing:
+  sharing1:
     npc: videoBlogger
     mood: interrogation
     available:
@@ -1374,7 +1374,7 @@ quests:
                   thenText:
                     en: "Thank you! This will help me a lot."
                     de: ""
-                  set: [ 'quest.sharing.active' ]
+                  set: [ 'quest.sharing1.active' ]
                 - text:
                     en: "Decline for now"
                     de: "Vorerst ablehnen."
@@ -1434,7 +1434,7 @@ quests:
                 - text:
                     en: "It will be interesting to see the final video on sharing research data, when it is done."
                     de: ""
-                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+                  set: [ 'quest.sharing1.done', 'pnt.freedomSmall.sharing1' ]
             - cond: 'COUNT("op.favor") = 0'
               text:
                 en: "Yes, it is a good thing to share your research data. You can use your own data after several years, even if your hard drive broke."
@@ -1455,7 +1455,7 @@ quests:
                 - text:
                     en: "It will be interesting to see the final video on sharing research data, when it is done."
                     de: ""
-                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+                  set: [ 'quest.sharing1.done', 'pnt.freedomSmall.sharing1' ]
             - cond: 'COUNT("op.favor") = 0'
               text:
                 en: "The coolest thing to do with your research data will be thought of by someone else. So it is great to share your data."
@@ -1466,7 +1466,7 @@ quests:
                 en: "You have already talked to me. Have you been to the MaRDI ship, yet?"
                 de: ""
           citizenComp:
-            - cond: 'COUNT("op.favor") = 1 & ^op.favor.citizenAqua' 
+            - cond: 'COUNT("op.favor") = 1 & ^op.favor.citizenComp' 
               type: sequence
               items:
                 - text:
@@ -1476,12 +1476,12 @@ quests:
                 - text:
                     en: "It will be interesting to see the final video on sharing research data, when it is done."
                     de: ""
-                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+                  set: [ 'quest.sharing1.done', 'pnt.freedomSmall.sharing1' ]
             - cond: 'COUNT("op.favor") = 0'
               text:
                 en: "Sometimes, it is a requirement from the funder to share your research data."
                 de: ""
-              set: [ 'op.favor.Comp' ]
+              set: [ 'op.favor.citizenComp' ]
             - cond: 'COUNT("op.favor") = 1 & op.favor.Comp' 
               text:
                 en: "You have already talked to me. Have you been to the MaRDI ship, yet?"
@@ -1497,12 +1497,12 @@ quests:
                 - text:
                     en: "It will be interesting to see the final video on sharing research data, when it is done."
                     de: ""
-                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+                  set: [ 'quest.sharing1.done', 'pnt.freedomSmall.sharing1' ]
             - cond: 'COUNT("op.favor") = 0'
               text:
                 en: "Sometimes, it is a requirement from the funder to share your research data."
                 de: ""
-              set: [ 'op.favor.Comp' ]
+              set: [ 'op.favor.citizenComp' ]
             - cond: 'COUNT("op.favor") = 1 & op.favor.Comp' 
               text:
                 en: "You have already talked to me. Have you been to the MaRDI ship, yet?"
@@ -1518,7 +1518,7 @@ quests:
                 - text:
                     en: "It will be interesting to see the final video on sharing research data, when it is done."
                     de: ""
-                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+                  set: [ 'quest.sharing1.done', 'pnt.freedomSmall.sharing1' ]
             - cond: 'COUNT("op.favor") = 0'
               text:
                 en: "Sharing your research data allows independent verification of your results."
@@ -1539,7 +1539,7 @@ quests:
                 - text:
                     en: "It will be interesting to see the final video on sharing research data, when it is done."
                     de: ""
-                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+                  set: [ 'quest.sharing1.done', 'pnt.freedomSmall.sharing1' ]
             - cond: 'COUNT("op.favor") = 0'
               text:
                 en: "Sharing your research data can improve your reputation as a researcher. Others might cite it in their own research, which will help to increase your impact within your field and beyond it."
@@ -1560,7 +1560,7 @@ quests:
                 - text:
                     en: "It will be interesting to see the final video on sharing research data, when it is done."
                     de: ""
-                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+                  set: [ 'quest.sharing1.done', 'pnt.freedomSmall.sharing1' ]
             - cond: 'COUNT("op.favor") = 0'
               text:
                 en: "Data sharing encourages more connection and collaboration between researchers, which can result in important new findings within the field."
@@ -1581,7 +1581,7 @@ quests:
                 - text:
                     en: "It will be interesting to see the final video on sharing research data, when it is done."
                     de: ""
-                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+                  set: [ 'quest.sharing1.done', 'pnt.freedomSmall.sharing1' ]
             - cond: 'COUNT("op.favor") = 0'
               text:
                 en: "Data sharing allows researchers to build upon the work of others rather than repeat already existing research. Sharing data also enables researchers to perform meta-analyses on the current research topic."
@@ -1602,7 +1602,7 @@ quests:
                 - text:
                     en: "It will be interesting to see the final video on sharing research data, when it is done."
                     de: ""
-                  set: [ 'quest.sharing.done', 'pnt.freedomSmall.sharing' ]
+                  set: [ 'quest.sharing1.done', 'pnt.freedomSmall.sharing1' ]
             - cond: 'COUNT("op.favor") = 0'
               text:
                 en: "Sharing data increases data circulation and use within the scientific community by encouraging better transparency, enabling reproducibility of results, and informing the larger scientific community."
@@ -1612,6 +1612,164 @@ quests:
               text:
                 en: "You have already talked to me."
                 de: ""
+  sharing2:
+    npc: artist
+    mood: interrogation
+    required: credit3
+    available:
+      dialogue:
+        - type: sequence
+          items:
+            - text:
+                en: "We collaborated in an interdisciplinary team to publish an article on cognitive neuroscience. We are almost done and want to publish it soon."
+                de: ""
+            - text:
+                en: "We will need a good license, or set of licenses for our research data."
+                de: ""
+            - text:
+                en: "Can you ask each of my collaborators which license is the best for their part, and what other advice they might have regarding publishing?"
+                de: ""
+              responses:
+                - text:
+                    en: "Accept the quest"
+                    de: "Nimm die Aufgabe an."
+                  thenText:
+                    en: "Thank you! All team members are gathered near the blackboard."
+                    de: ""
+                  set: [ 'quest.sharing2.active' ]
+                - text:
+                    en: "Decline for now"
+                    de: "Vorerst ablehnen."
+                  thenText:
+                    en: "OK. I hope you reconsider."
+                    de: "Ok. Ich hoffe, du überlegst es dir nochmal."
+    stages:
+      - prompt:
+          en: "Ask collaborators about licenses and advice for publication."
+          de: ""
+        counter:
+          expression: 'COUNT("op.favor")'
+          max: 4
+          icon: happy
+        dialogues:
+          artist:
+            - type: sequence
+              items:
+                - text:
+                    en: "I really need to finish writing this article. "
+                    de: ""
+                - text:
+                    en: "Please help me and ask my collaborators which license is the best for their part, and what other advice they have regarding publishing."
+                    de: ""
+                - text:
+                    en: "I collaborated with Flora, Jane, Mike, and Franciszek. You will find all of them near the blackboard."
+                    de: ""
+          citizenAqua:
+            - cond: 'COUNT("op.favor") = 3 & ^op.favor.citizenAqua' 
+              type: sequence
+              items:
+                - text:
+                    en: "We need to find a good reputation journal to publish, preferably with a high Impact Factor."
+                    de: ""
+                - text:
+                    en: "But it is also important to respect the FAIR principles, and promote ethical practices in the community. If you don't know about the FAIR principles, the MaRDI Help Desk at the harbor can explain it to you."
+                    de: ""      
+                - text:
+                    en: "Is it ethical to pay for publication? To pay in exchange for Open Access? To ask experts to be unpaid referees? These are important debates within the community, and MaRDI promotes them."
+                    de: ""              
+                  set: [ 'op.favor.citizenAqua' ]
+                - text:
+                    en: "Thank you for collecting information about the individual licenses. Licenses and legal issues may be troublesome. You can ask your local data steward or the MaRDI Help Desk for advice."
+                    de: ""
+                  set: [ 'quest.sharing2.done', 'pnt.freedomSmall.sharing2' ]
+            - cond: 'COUNT("op.favor") <= 3'
+              type: sequence
+              items:
+                - text:
+                    en: "We need to find a good reputation journal to publish, preferably with a high Impact Factor."
+                    de: ""
+                - text:
+                    en: "But it is also important to respect the FAIR principles, and promote ethical practices in the community. If you don't know about the FAIR principles, the MaRDI Help Desk at the harbor can explain it to you."
+                    de: ""      
+                - text:
+                    en: "Is it ethical to pay for publication? To pay in exchange for Open Access? To ask experts to be unpaid referees? These are important debates within the community, and MaRDI promotes them."
+                    de: ""              
+                  set: [ 'op.favor.citizenAqua' ]
+          citizenComp2:
+            - cond: 'COUNT("op.favor") = 3 & ^op.favor.citizenComp2' 
+              type: sequence
+              items:
+                - text:
+                    en: "Certainly we can publish our software code under free open source licenses."
+                    de: ""
+                - text:
+                    en: "For software, it is better to use a software-specific license like MIT, Apache, BSD, GPL… instead of content-specific licenses like Creative Commons."
+                    de: ""
+                  set: [ 'op.favor.citizenComp2' ]
+                - text:
+                    en: "Thank you for collecting information about the individual licenses. Licenses and legal issues may be troublesome. You can ask your local data steward or the MaRDI Help Desk for advice."
+                    de: ""
+                  set: [ 'quest.sharing2.done', 'pnt.freedomSmall.sharing2' ]
+            - cond: 'COUNT("op.favor") <= 3'
+              type: sequence
+              items:
+                - text:
+                    en: "Certainly we can publish our software code under free open source licenses."
+                    de: ""
+                - text:
+                    en: "For software, it is better to use a software-specific license like MIT, Apache, BSD, GPL… instead of content-specific licenses like Creative Commons."
+                    de: ""
+                  set: [ 'op.favor.citizenComp2' ]
+          gameDev2:
+            - cond: 'COUNT("op.favor") = 3 & ^op.favor.gameDev2' 
+              type: sequence
+              items:
+                - text:
+                    en: "We will make our article available in Zenodo, together with the databases, our models, and our software. Then we will publish in a peer-reviewed journal compatible with Open Access. "
+                    de: ""
+                  set: [ 'op.favor.gameDev2' ]
+                - text:
+                    en: "Thank you for collecting information about the individual licenses. Licenses and legal issues may be troublesome. You can ask your local data steward or the MaRDI Help Desk for advice."
+                    de: ""
+                  set: [ 'quest.sharing2.done', 'pnt.freedomSmall.sharing2' ]
+            - cond: 'COUNT("op.favor") <= 3'
+              type: sequence
+              items:
+                - text:
+                    en: "We will make our article available in Zenodo, together with the databases, our models, and our software. Then we will publish in a peer-reviewed journal compatible with Open Access. "
+                    de: ""
+                  set: [ 'op.favor.gameDev2' ]
+          citizenYoga2:
+            - cond: 'COUNT("op.favor") = 3 & ^op.favor.yoga' 
+              type: sequence
+              items:
+                - text:
+                    en: "For this project, I collected experimental data at the wildlife reserve. Some databases have restricted access, but this does not necessarily mean they violate the Accessibility principle."
+                    de: ""
+                - text:
+                    en: "For instance, medical databases can have restricted access for privacy reasons. By the way, 'Accessibility' is one of the FAIR principles. The MaRDI Help Desk at the harbour can tell you more about it."
+                    de: ""
+                - text:
+                    en: "In our case, the wildlife reserve requires us to sign a non-disclosure agreement with the data, but we may publish some secondary data with open licenses."
+                    de: ""
+                  set: [ 'op.favor.yoga' ]
+                - text:
+                    en: "Thank you for collecting information about the individual licenses. Licenses and legal issues may be troublesome. You can ask your local data steward or the MaRDI Help Desk for advice."
+                    de: ""
+                  set: [ 'quest.sharing2.done', 'pnt.freedomSmall.sharing2' ]
+            - cond: 'COUNT("op.favor") <= 3'
+              type: sequence
+              items:
+                - text:
+                    en: "For this project, I collected experimental data at the wildlife reserve. Some databases have restricted access, but this does not necessarily mean they violate the Accessibility principle."
+                    de: ""
+                - text:
+                    en: "For instance, medical databases can have restricted access for privacy reasons. By the way, 'Accessibility' is one of the FAIR principles. The MaRDI Help Desk at the harbour can tell you more about it."
+                    de: ""
+                - text:
+                    en: "In our case, the wildlife reserve requires us to sign a non-disclosure agreement with the data, but we may publish some secondary data with open licenses."
+                    de: ""
+                  set: [ 'op.favor.yoga' ]
   mardi1:
     npc: mayor
     mood: interrogation
@@ -1886,25 +2044,53 @@ ending:
           text:
             en: "This was the topic of the quest you solved:"
             de: ""
-        - cond: 'COUNT("pnt.") > 1 & COUNT("pnt.") <= 3'
+        - cond: 'COUNT("pnt.") = 2'
           text:
-            en: "You solved more than one quest. Congratulations!"
+            en: "You solved two quest. Congratulations!"
             de: ""
-        - cond: 'COUNT("pnt.") > 3 & COUNT("pnt.") <= 6'
+        - cond: 'COUNT("pnt.") = 3'
           text:
-            en: "You solved more than three quests. Congratulations!"
+            en: "You solved three quest. Congratulations!"
             de: ""
-        - cond: 'COUNT("pnt.") > 6 & COUNT("pnt.") <= 9'
+        - cond: 'COUNT("pnt.") = 4'
           text:
-            en: "You solved more than six quests. Congratulations!"
+            en: "You solved four quest. Congratulations!"
             de: ""
-        - cond: 'COUNT("pnt.") > 9 & COUNT("pnt.") <= 11'
+        - cond: 'COUNT("pnt.") = 5'
           text:
-            en: "You solved more than nine quests. Congratulations!"
+            en: "You solved five quest. Congratulations!"
+            de: ""
+        - cond: 'COUNT("pnt.") = 6'
+          text:
+            en: "You solved six quest. Congratulations!"
+            de: ""
+        - cond: 'COUNT("pnt.") = 7'
+          text:
+            en: "You solved seven quest. Congratulations!"
+            de: ""
+        - cond: 'COUNT("pnt.") = 8'
+          text:
+            en: "You solved eight quest. Congratulations!"
+            de: ""
+        - cond: 'COUNT("pnt.") = 9'
+          text:
+            en: "You solved nine quest. Congratulations!"
+            de: ""
+        - cond: 'COUNT("pnt.") = 10'
+          text:
+            en: "You solved ten quest. Congratulations!"
+            de: ""
+        - cond: 'COUNT("pnt.") = 11'
+          text:
+            en: "You solved eleven quest. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") = 12'
           text:
-            en: "You solved all twelve quests. Congratulations!"
+            en: "You solved twelve quests. Congratulations!"
+            de: ""
+        - cond: 'COUNT("pnt.") = 13'
+          text:
+            en: "You solved all thirteen quest. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") > 1'
           text:
@@ -1922,7 +2108,7 @@ ending:
           text:
             en: "Knowledge Graph - a knowledge base in the form of a mathematical graph."
             de: ""
-        - cond: 'quest.sharing.done | quest.mardi1.done' 
+        - cond: 'quest.sharing1.done | quest.mardi1.done | quest.sharing2.done' 
           text:
             en: "MaRDI and the importance of sharing research data."
             de: ""
