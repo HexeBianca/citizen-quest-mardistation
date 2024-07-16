@@ -2046,43 +2046,43 @@ ending:
             de: ""
         - cond: 'COUNT("pnt.") = 2'
           text:
-            en: "You solved two quest. Congratulations!"
+            en: "You solved two quests. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") = 3'
           text:
-            en: "You solved three quest. Congratulations!"
+            en: "You solved three quests. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") = 4'
           text:
-            en: "You solved four quest. Congratulations!"
+            en: "You solved four quests. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") = 5'
           text:
-            en: "You solved five quest. Congratulations!"
+            en: "You solved five quests. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") = 6'
           text:
-            en: "You solved six quest. Congratulations!"
+            en: "You solved six quests. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") = 7'
           text:
-            en: "You solved seven quest. Congratulations!"
+            en: "You solved seven quests. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") = 8'
           text:
-            en: "You solved eight quest. Congratulations!"
+            en: "You solved eight quests. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") = 9'
           text:
-            en: "You solved nine quest. Congratulations!"
+            en: "You solved nine quests. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") = 10'
           text:
-            en: "You solved ten quest. Congratulations!"
+            en: "You solved ten quests. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") = 11'
           text:
-            en: "You solved eleven quest. Congratulations!"
+            en: "You solved eleven quests. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") = 12'
           text:
@@ -2090,7 +2090,7 @@ ending:
             de: ""
         - cond: 'COUNT("pnt.") = 13'
           text:
-            en: "You solved all thirteen quest. Congratulations!"
+            en: "You solved all thirteen quests. Congratulations!"
             de: ""
         - cond: 'COUNT("pnt.") > 1'
           text:
@@ -2110,7 +2110,7 @@ ending:
             de: ""
         - cond: 'quest.sharing1.done | quest.mardi1.done | quest.sharing2.done' 
           text:
-            en: "MaRDI and the importance of sharing research data."
+            en: "MaRDI and sharing research data."
             de: ""
 
 
