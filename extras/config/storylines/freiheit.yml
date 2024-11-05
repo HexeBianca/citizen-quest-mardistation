@@ -1898,7 +1898,7 @@ quests:
         - type: sequence
           items:
             - text:
-                en: "I am a topologist, and I am working on a paper that proves a classification result about all manifolds of dimension 6 that satisfies my favorite set of properties."
+                en: "I am a topologist, and I am working on a paper that proves a classification result about all manifolds of dimension 6 that satisfy my favorite set of properties."
                 de: "Ich bin Topologin und arbeite an einer Publikation, die ein Klassifizierungsergebnis für alle Mannigfaltigkeiten der Dimension 6 beweist, die meine Lieblingseigenschaften erfüllen." 
             - text:
                 en: "I just learned about this new Research Data culture and the MaRDI project. Should I consider research data structures when writing my papers?"
@@ -1923,8 +1923,8 @@ quests:
     stages:
       - cond: 'found.mardi2.help'
         prompt:
-          en: "Find out about research data structures"
-          de: "Finde mehr über Forschungsdaten-Strukturen heraus..."
+          en: "Find out about research data structures."
+          de: "Finde mehr über Forschungsdaten-Strukturen heraus."
         target: mardiMathematician
         dialogues:
           mayor:
@@ -1946,7 +1946,7 @@ quests:
                     en: "Such a catalog can serve as a general reference place to look up what is known about your favorite manifolds, with links to references to the original articles, properties, or digital descriptions if suitable."
                     de: "Ein solcher Katalog kann als Nachschlagewerk dienen, das speichert, was über Mannigfaltigkeiten bekannt ist, mit Links zu Originalartikeln, Eigenschaften oder digitalen Beschreibungen."
                 - text:
-                    en: "The general MaRDI knowledge graph can also link your friend's classification. Are you familiar with the term 'Knowledge Graph'?"
+                    en: "The general MaRDI knowledge graph can also link to your friend's classification. Are you familiar with the term 'Knowledge Graph'?"
                     de: "Der allgemeine MaRDI-Knowledge Graph kann auch die Klassifizierung deiner Freundin verknüpfen. Ist dir der Begriff 'Knowledge Graph' vertraut?"
                   responses:
                     - text:
@@ -1982,8 +1982,8 @@ quests:
                   set: [ 'quest.mardi2.done', 'pnt.freedomSmall.mardi2' ]
       - cond: '^found.mardi2.help'
         prompt:
-          en: "Find out about research data structures"
-          de: "Finde mehr über Forschungsdaten-Strukturen heraus..."
+          en: "Find out about research data structures."
+          de: "Finde mehr über Forschungsdaten-Strukturen heraus."
         target: mardiHelpDesk
         dialogues:
           mayor:
